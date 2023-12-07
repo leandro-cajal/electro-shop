@@ -16,10 +16,10 @@
     <meta property="og:title" content="Electro | Venta de productos tecnologicos">
     <meta property="og:description" content="¡Compra toda la tecnología con un solo click desde cualquier parte del pais! TV | Notebooks | Gaming | Impresion | Consolas">
     <!-- AGREGAR ABAJO LA EL LOGO DE LA TIENDA -->
-    <meta property="og:image" itemprop="image" content="/img/logo/logo">
+    <meta property="og:image" itemprop="image" content="./img/logo/logo-favicon.svg">
     <meta property="og:type" content="website">
-    <link rel="shortcut icon" href="./img/logo/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/x-icon" href="./img/logo/logo.png">
+    <link rel="shortcut icon" href="./img/logo/logo-favicon.svg" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="./img/logo/logo-favicon.svg">
     <!-- BOOTSTRAP ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- CSS STYLE -->
@@ -27,8 +27,7 @@
     
 
 </head>
-<body class="w-full mx-auto font-sans">
-    
+<body class="w-full mx-auto font-sans">  
     <header class="">
         <div class="bg-slate-900 hidden py-2 text-white text-center lg:block">
             <div class="max-w-7xl mx-auto text-center">
@@ -36,41 +35,52 @@
             </div> 
         </div>
         <div class="max-w-7xl mx-auto">
-            <div class="flex items-center justify-between my-2">
-                <div class="flex items-center gap-0 w-1/5">
+            <div class="flex flex-wrap items-center justify-between my-2 px-4 space-y-2">
+                <!-- LOGO -->
+                <div class="flex justify-center gap-1 items-center">
+                    <button class="border rounded  p-1 bg-slate-200 text-slate-600 lg:hidden">
+                        <img class="fill-[#4d3efc]" src="./img/menu-icon.svg" alt="">
+                    </button>
+                    
                     <a class="mx-auto" href="#">
-                       <img class="w-20"src="./img/logo/logov3.svg" alt="">
+                       <img class="w-28"src="./img/logo/logo-header.png" alt="Logo de la tienda">
                     </a>
                 </div>
-                <div class="w-2/5">
-                    <form class="bg-gray-200 p-2 rounded-md" action="/shop" method="post">
-                        <div class="flex justify-between items-center">
-                            <input type="text" class="input-text bg-transparent focus:outline-none rounded-md p-1 w-[90%]" name="search" id="search" placeholder="Buscar productos">
-                            <button class="me-auto w-1/6" type="submit">
-                            <i class="border-l border-slate-300 ps-6 w-100 py-1 bi bi-search mx-auto text-slate-900"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div> 
-                <div class="w-1/5 space-x-4 flex justify-center items-center">
+                
+                <div class="space-x-4 flex justify-center items-center lg:order-3">
                     <a href="">
                         <i class="text-[#4d3efc] bi bi-person-circle text-2xl"></i>
                     </a>
-                    <a class="border-l-2 border-slate-200 px-4 py-1" href="">
+                    <a class="lg:border-l-2 lg:border-slate-200 px-4 py-1" href="">
                         <i class="text-red-600 bi bi-cart text-2xl"></i>
                     </a>
                 </div>
+                <!-- BUSCADOR -->
+                <div class="w-full lg:order-2 lg:w-2/4">
+                    <form class="bg-gray-200 p-1 rounded-md" action="/shop" method="post">
+                        <div class="flex justify-between items-center">
+                            <input type="text" class="input-text bg-transparent focus:outline-none rounded-md p-1 w-[90%]" name="search" id="search" placeholder="Buscar productos">
+                            <button class="me-auto w-1/6" type="submit">
+                            <i class="border-l w-32 border-slate-300 w-100 py-1 bi bi-search mx-auto text-slate-900"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <nav class="w-full mx-auto">
-            <ul class="max-w-7xl mx-auto flex gap-20 p-2 justify-between items-center border font-semibold">
-                <li><a class="border-r font-bold p-3 uppercase text-slate-700 mt-0" href=""><i class="text-2xl bi bi-filter-left"></i>Categorias</a></li>
-                <li><a class="hover:border-b-2 hover:border-b-slate-900" href="">Computacion</a></li>
-                <li><a class="" href="">Perifericos PC</a></li>
-                <li><a class="" href="">Accesorios Smart</a></li>
-                <li><a class="" href="">Electrodomésticos</a></li>
-                <li><a class="" href="">Smart Home</a></li>
-                <li><a class="text-red-600" href="">Outlet</a></li>
+        <!-- NAV -->
+        <nav class="w-full mx-auto lg:border">
+            <ul class="max-w-7xl mx-auto gap-3 p-2 justify-between items-center text-stone-700 hidden lg:flex">
+                <li class="flex "><button class="  p-1  text-slate-600 hidden lg:block">
+                        <img class="" src="./img/menu-icon.svg" alt="">
+                    </button>
+                    <a class="border-r font-bold p-3 uppercase text-slate-800 mt-0" href="">Categorías</a></li>
+                <li><a class="text-base hover:border-b-4 py-5 transition-all hover:border-b-[#4d3efc]" href="">Computacion</a></li>
+                <li><a class="hover:border-b-4 py-5 transition-all hover:border-b-[#4d3efc]" href="">Perifericos PC</a></li>
+                <li><a class="hover:border-b-4 py-5 transition-all hover:border-b-[#4d3efc]" href="">Accesorios Smart</a></li>
+                <li><a class="hover:border-b-4 py-5 transition-all hover:border-b-[#4d3efc]" href="">Electrodomésticos</a></li>
+                <li><a class="hover:border-b-4 py-5 transition-all hover:border-b-[#4d3efc]" href="">Smart Home</a></li>
+                <li><a class="hover:border-b-4 py-5 transition-all hover:border-b-red-600 text-red-600 pe-4" href="">Outlet</a></li>
             </ul>
         </nav>
     </header>
