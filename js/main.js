@@ -1,4 +1,4 @@
-let montoInicial, respuestaUsuario;
+/*let montoInicial, respuestaUsuario;
 
 function simuladorCuotas(montoInicial, numCuotas) {
     let valorDeCuota;
@@ -47,5 +47,5 @@ do {
         simuladorCuotas(prestamo, numCuotas);
     }
 
-} while (respuestaUsuario === "si");
+} while (respuestaUsuario === "si");*/
 
