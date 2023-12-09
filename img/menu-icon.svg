@@ -3,16 +3,16 @@
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 <svg fill="#4d3efc" width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
 
-<title/>
+  <title/>
 
-<g data-name="menu " id="menu_">
+  <g data-name="menu " id="menu_" stroke-width="2"> <!-- Ajusté stroke-width aquí -->
 
-<path d="M29,6H3A1,1,0,0,0,3,8H29a1,1,0,0,0,0-2Z"/>
+    <path d="M29,6H3A1,1,0,0,0,3,8H29a1,1,0,0,0,0-2Z"/>
 
-<path d="M3,17H16a1,1,0,0,0,0-2H3a1,1,0,0,0,0,2Z"/>
+    <path d="M3,17H16a1,1,0,0,0,0-2H3a1,1,0,0,0,0,2Z"/>
 
-<path d="M25,24H3a1,1,0,0,0,0,2H25a1,1,0,0,0,0-2Z"/>
+    <path d="M25,24H3a1,1,0,0,0,0,2H25a1,1,0,0,0,0-2Z"/>
 
-</g>
+  </g>
 
 </svg>

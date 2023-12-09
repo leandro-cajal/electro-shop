@@ -49,3 +49,67 @@ do {
 
 } while (respuestaUsuario === "si");*/
 
+
+'use strict';
+
+function setupCarousel(carouselSelector, indicatorSelector) {
+    const carousel = document.querySelector(carouselSelector);
+    const carouselIndicators = document.querySelectorAll(indicatorSelector);
+    let currentIndex = 0;
+
+    const moveCarousel = (index) => {
+        let operation = index * -100;
+        carousel.style.transform = `translateX(${operation}%)`;
+
+        // restablecer todos los indicadores a su estado original
+        carouselIndicators.forEach((indicator) => {
+            indicator.classList.remove('bg-stone-700');
+        });
+
+        // aplicar el fondo al indicador correspondiente
+        carouselIndicators[index].classList.add('bg-stone-700');
+    };
+
+    carouselIndicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+            currentIndex = i;
+            moveCarousel(currentIndex);
+        });
+    });
+
+    // inicializar swiper.js solo si el ancho de la ventana es menor o igual a 768px
+    if (window.innerWidth <= 768) {
+        new Swiper(carousel, {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            allowTouchMove: true,
+            autoplay: {
+                delay: 8000,
+                disableOnInteraction: false,
+            },
+        });
+    }
+
+    // funcion para mover automaticamente el carrusel cada 8 segundos
+    const autoMoveCarousel = () => {
+        currentIndex = (currentIndex + 1) % carouselIndicators.length;
+        moveCarousel(currentIndex);
+    };
+
+    // configurar intervalo para el movimiento automatico cada 8 segundos
+    let intervalId = setInterval(autoMoveCarousel, 8000);
+
+    // detener el intervalo cuando el mouse esta sobre el carrusel
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(intervalId);
+    });
+
+    // reanudar el intervalo cuando el mouse sale del carrusel
+    carousel.addEventListener('mouseleave', () => {
+        intervalId = setInterval(autoMoveCarousel, 8000);
+    });
+}
+
+setupCarousel('.carousel', '.carousel-indicator');
+setupCarousel('.carousel-mobile', '.mobile-carousel-indicator');

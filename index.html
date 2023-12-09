@@ -20,6 +20,10 @@
     <meta property="og:type" content="website">
     <link rel="shortcut icon" href="./img/logo/logo-favicon.svg" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="./img/logo/logo-favicon.svg">
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <!-- BOOTSTRAP ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- CSS STYLE -->
@@ -29,7 +33,7 @@
 </head>
 <body class="w-full mx-auto font-sans">  
     <!-- INICIO DE HEADER -->
-    <header class="">
+    <header class="bg-white fixed bg-fixed w-full z-50">
         <div class="bg-slate-900 hidden py-2.5 text-white text-center lg:block">
             <div class="max-w-7xl mx-auto text-center">
                 <span class="font-semibold">Envios a todo el país</span>
@@ -37,9 +41,9 @@
         </div>
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-wrap items-center justify-between my-2 px-4 space-y-2">
-                <div class="flex justify-center gap-1 items-center">
+                <div class="flex justify-center gap-4 items-center">
                     <!-- MENU HAMBURGUESA -->
-                    <button class="border rounded  p-1 bg-slate-200 text-slate-600 lg:hidden">
+                    <button class="border rounded p-1 bg-slate-200 text-slate-600 lg:hidden">
                         <img class="fill-[#4d3efc]" src="./img/menu-icon.svg" alt="">
                     </button>
                     <!-- LOGO -->
@@ -70,45 +74,123 @@
             </div>
         </div>
         <!-- NAV -->
-        <nav class="w-full mx-auto mt-4 lg:border ">
-            <ul class="max-w-7xl mx-auto gap-3 justify-between items-center text-stone-700 hidden lg:flex">
-                <li class="flex "><button class="  p-1  text-slate-600 hidden lg:block">
+        <nav class="w-full bg-white mx-auto mt-4 lg:border ">
+            <ul class=" max-w-7xl mx-auto gap-3 justify-between items-center text-stone-700 hidden lg:flex">
+                <li class="flex border-x px-8 justify-between">
+                    <button class="  p-1  text-slate-600 hidden lg:block">
                         <img class="" src="./img/menu-icon.svg" alt="">
                     </button>
-                    <a class="border-r font-bold p-3 uppercase text-slate-800 mt-0" href="">Categorías</a></li>
+                    <a class="font-bold p-3 uppercase text-slate-800 mt-0" href="">Categorías</a></li>
                 <li><a class="text-base hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Computacion</a></li>
                 <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Periféricos PC</a></li>
                 <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Accesorios Smart</a></li>
                 <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Electrodomésticos</a></li>
                 <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Smart Home</a></li>
-                <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-red-600 text-red-600" href="">Outlet</a></li>
+                <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-red-600 text-red-600 me-6" href="">Outlet</a></li>
             </ul>
         </nav>
         <!-- FIN DE NAV -->
     </header>
     <!-- FIN DE HEADER -->
     <main class="bg-gray-100">
-        <!-- CAROUSEL -->
-        <section class="w-full">
-            <div class="max-w-7xl mx-auto">
-                <a href="#">
-                    <img src="./img/banner-1.png" alt="">
-                </a>
-                
+      <div class="bg-white w-full py-[55px] lg:py-[90px]"></div>
+        
+      <section class="w-full mt-2">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col">
+            <!-- CAROUSEL -->
+            <div class="carousel-container">
+              <div class="hidden md:block relative overflow-hidden ">
+                <div class="carousel flex -z-10 transition-all">
+                  <img src="./img/banner-1.png" alt="">
+                  <img src="./img/banner-2.png" alt="">
+                  <img src="./img/banner-3.png" alt="">
+                  <img src="./img/banner-4.png" alt="">
+                </div>
+                <ul class=" flex gap-2 w-1/2 justify-center indicators z-40 translate-x-[50%] -translate-y-[250%] absolute">
+                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
+                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
+                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
+                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
+                </ul>  
+              </div>
+              <div class="md:hidden relative overflow-hidden">
+                <div class="flex carousel-mobile -z-10 transition-all ease-in-out">
+                  <img src="./img/banner-1-h.png" alt="">
+                  <img src="./img/banner-2-h.png" alt="">
+                  <img src="./img/banner-3-h.png" alt="">
+                  <img src="./img/banner-4-h.png" alt="">
+                </div>
+                <ul class="flex gap-2 w-1/2 justify-center indicators z-40 translate-x-[50%] -translate-y-[250%] absolute">
+                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
+                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
+                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
+                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
+                </ul>
+              </div>
             </div>
+            <!-- FIN DE CAROUSEL  -->
+            <div class="bg-white w-full">
+              <div class="max-w-7xl flex items-center gap-5 md:gap-20 flex-col md:flex-row justify-center py-4 mx-auto">
+                <div class="hidden lg:block">
+                  <ul class="flex gap-8 items-center justify-end">
+                    <li><img src="./img/credit-cards/visa.svg" alt=""></li>
+                    <li><img src="./img/credit-cards/american-express.svg" alt=""></li>
+                    <li><img src="./img/credit-cards/mastercard.png" alt=""></li>
+                    <li><img src="./img/credit-cards/naranja.png" alt=""></li>
+                    <li><img src="./img/credit-cards/ahora-12.svg" alt=""></li>
+                    <li><img src="./img/credit-cards/ahora-18.svg" alt=""></li>
+                  </ul>
+                </div>
+                <div>
+                  <a class="flex items-center gap-4" href="#">
+                    <i class="text-3xl bi bi-credit-card bg-clip-text text-transparent bg-gradient-to-r from-[#4d3efc] to-red-500"></i>
+                    <div class="flex flex-col">
+                      <span class="text-stone-600 font-semibold text-xs">Pagá con crédito y débito</span>
+                      <span class="text-red-500 font-semibold text-xs">Ver promociones</span>
+                    </div>  
+                  </a>
+                </div>
+                <div class="flex gap-4 items-center">
+                  <i class="text-3xl bi bi-truck w-10 h-10 bg-clip-text text-transparent bg-gradient-to-r from-[#4d3efc] to-red-500"></i>
+                  <span class="text-stone-500 font-semibold text-sm">Envios a todo el país</span>
+                </div>
+              </div>  
+            </div>
+          </div> 
+        </div>
+      </section>
+      <!-- FIN DE PRIMERA SECCION DE MI HOME -->
+
+      <!-- SECCION CAROUSEL DE PRODUCTOS -->
+
+      <div class="w-full">
+        <section class="max-w-7xl">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </section>
+      </div>
+
     </main>
 
     <!-- INICIO DE FOOTER -->
-    <footer class="text-gray-600 body-font w-full">
-        <div class="max-w-7xl mx-auto px-5 py-24 flex md:items-center md:flex-row md:flex-nowrap flex-wrap flex-col">
-            <div class="w-64 flex-shrink-0 mx-auto text-center md:mt-0 mt-10">
-                <div class="mx-auto">
-                    <img class="w-28 lg:w-40 mx-auto"src="./img/logo/logo-header.png" alt="Logo de la tienda">
-                 </div>
-            </div>
-          <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-            <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+    <footer class="text-gray-600 body-font w-full border-y border-stone-00">
+        <div class="max-w-7xl mx-auto px-5 py-12 flex lg:items-center lg:flex-row lg:flex-nowrap flex-wrap flex-col">
+          <div class="w-64 flex-shrink-0 mx-auto text-center lg:w-[20%] md:mt-0 mt-10">
+              <div class="mx-auto">
+                  <img class="w-28 lg:w-40 mx-auto"src="./img/logo/logo-header.png" alt="Logo de la tienda">
+                </div>
+          </div>
+          <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left lg:justify-between lg:pr-0 text-center order-first">
+            <div class="lg:w-[30%] md:w-1/2 w-full px-4">
               <h2 class="title-font font-medium text-[#4d3efc] tracking-widest text-base mb-6">Contacto</h2>
               <nav class="list-none mb-10 space-y-2">
                 <li>
@@ -181,14 +263,14 @@
             </div>
           </div>
         </div>
-        <div class="bg-gray-100 w-full">
-          <div class="max-w-7xl mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-            <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Electro —
-              <a href="https://github.com/leandro-cajal/electro-store" rel="noopener noreferrer" class="text-[#4d3efc] ml-1" target="_blank">Leo</a>
-            </p>
-          </div>
-        </div>
       </footer>
-    <script src="./js/main.js"></script>
+      <div class="bg-white w-full">
+        <div class="max-w-7xl mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Electro —
+            <a href="https://github.com/leandro-cajal/electro-store" rel="noopener noreferrer" class="text-[#4d3efc] ml-1" target="_blank">Leo</a>
+          </p>
+        </div>
+      </div>
+    <script defer src="./js/main.js"></script>
 </body>
 </html>
