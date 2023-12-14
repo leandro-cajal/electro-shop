@@ -1,276 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electro | Venta de productos tecnologicos</title>
-    <!-- META TAGS -->
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="¡Compra toda la tecnología con un solo click desde cualquier parte del pais! TV | Notebooks | Gaming | Impresion | Consolas">
-    <meta name="robots" content="all">
-    <meta name="google-site-verification" content>
-    <!-- COLOCAR URL DE SITIO WEB ABAJO -->
-    <link rel="canonical" href="">
-    <meta property="og:site-name" content="Electro | Venta de productos tecnologicos">
-    <meta property="og:title" content="Electro | Venta de productos tecnologicos">
-    <meta property="og:description" content="¡Compra toda la tecnología con un solo click desde cualquier parte del pais! TV | Notebooks | Gaming | Impresion | Consolas">
-    <!-- AGREGAR ABAJO LA EL LOGO DE LA TIENDA -->
-    <meta property="og:image" itemprop="image" content="./img/logo/logo-favicon.svg">
-    <meta property="og:type" content="website">
-    <link rel="shortcut icon" href="./img/logo/logo-favicon.svg" type="image/x-icon">
-    <link rel="icon" type="image/x-icon" href="./img/logo/logo-favicon.svg">
-    <!-- SWIPER -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <!-- BOOTSTRAP ICONS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <!-- CSS STYLE -->
-    <link rel="stylesheet" href="./css/style.css">
-    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electro | Venta de productos tecnologicos</title>
+  <!-- META TAGS -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description"
+    content="¡Compra toda la tecnología con un solo click desde cualquier parte del pais! TV | Notebooks | Gaming | Impresion | Consolas">
+  <meta name="robots" content="all">
+  <meta name="google-site-verification" content>
+  <!-- COLOCAR URL DE SITIO WEB ABAJO -->
+  <link rel="canonical" href="">
+  <meta property="og:site-name" content="Electro | Venta de productos tecnologicos">
+  <meta property="og:title" content="Electro | Venta de productos tecnologicos">
+  <meta property="og:description"
+    content="¡Compra toda la tecnología con un solo click desde cualquier parte del pais! TV | Notebooks | Gaming | Impresion | Consolas">
+  <!-- AGREGAR ABAJO LA EL LOGO DE LA TIENDA -->
+  <meta property="og:image" itemprop="image" content="./img/logo/logo-favicon.svg">
+  <meta property="og:type" content="website">
+  <link rel="shortcut icon" href="./img/logo/logo-favicon.svg" type="image/x-icon">
+  <link rel="icon" type="image/x-icon" href="./img/logo/logo-favicon.svg">
+  <!-- SWIPER -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- BOOTSTRAP ICONS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <!-- CSS STYLE -->
+  <link rel="stylesheet" href="./css/style.css">
+
 
 </head>
-<body class="w-full mx-auto font-sans">  
-    <!-- INICIO DE HEADER -->
-    <header class="bg-white fixed bg-fixed w-full z-50">
-        <div class="bg-slate-900 hidden py-2.5 text-white text-center lg:block">
-            <div class="max-w-7xl mx-auto text-center">
-                <span class="font-semibold">Envios a todo el país</span>
-            </div> 
+
+<body class="w-full mx-auto font-sans relative">
+  <!-- INICIO DE HEADER -->
+  <!-- bg-white fixed bg-fixed w-full z-50 shadow-md lg:shadow-none -->
+  <!--  -->
+  <header class="bg-white fixed bg-fixed w-full z-50 shadow-md lg:shadow-none">
+    <div class="bg-slate-900 hidden py-2.5 text-white text-center lg:block">
+      <div class="max-w-7xl mx-auto text-center">
+        <span class="font-semibold">Envios a todo el país</span>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap items-center justify-between my-2 px-4 space-y-2">
+        <div class="flex justify-center gap-4 items-center">
+          <!-- MENU HAMBURGUESA -->
+          <button id="open-menu" class="lg:hidden">
+            <img class="boton de aprterua del menu" src="./img/menu-icon.svg" alt="Boton para abrir el menu">
+          </button>
+          <!-- LOGO -->
+          <a class="mx-auto" href="#">
+            <img class="w-28 lg:w-40" src="./img/logo/logo-header.png" alt="Logo de la tienda">
+          </a>
         </div>
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-wrap items-center justify-between my-2 px-4 space-y-2">
-                <div class="flex justify-center gap-4 items-center">
-                    <!-- MENU HAMBURGUESA -->
-                    <button class="border rounded p-1 bg-slate-200 text-slate-600 lg:hidden">
-                        <img class="fill-[#4d3efc]" src="./img/menu-icon.svg" alt="">
-                    </button>
-                    <!-- LOGO -->
-                    <a class="mx-auto" href="#">
-                       <img class="w-28 lg:w-40"src="./img/logo/logo-header.png" alt="Logo de la tienda">
-                    </a>
-                </div>
-                <!-- LOGG IN Y CARRITO DE COMPRAS -->
-                <div class="space-x-4 flex justify-center items-center lg:order-3">
-                    <a href="">
-                        <i class="text-[#4d3efc] bi bi-person-circle text-2xl"></i>
-                    </a>
-                    <a class="lg:border-l lg:border-slate-300 px-4 " href="">
-                        <i class="text-red-600 bi bi-cart text-2xl"></i>
-                    </a>
-                </div>
-                <!-- BUSCADOR -->
-                <div class="w-full lg:order-2 lg:w-[40%]">
-                    <form class="bg-gray-100 border border-slate-300 px-2 rounded-md" action="/shop" method="post">
-                        <div class="flex justify-between items-center p-1">
-                            <input type="text" class="input-text text-slate-500 bg-transparent focus:outline-none rounded-md px-2 w-[90%]" name="search" id="search" placeholder="Buscar productos">
-                            <button class="pl-2 py-1 border-l border-slate-300 w-[10%]" type="submit">
-                            <i class=" text-base font-bold bi bi-search mx-auto text-[#4d3efc]"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+        <!-- LOGG IN Y CARRITO DE COMPRAS -->
+        <div class="gap-5 flex justify-between items-center lg:order-3">
+          <a href="">
+            <i class="text-[#4d3efc] bi bi-person-circle text-2xl bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>
+          </a>
+          <a class="lg:border-l lg:border-slate-300 lg:px-4 " href="">
+            <i class="text-red-600 bi bi-cart text-2xl bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>
+          </a>
+        </div>
+        <!-- BUSCADOR -->
+        <div class="w-full lg:order-2 lg:w-[40%]">
+          <form class="bg-gray-100 border border-slate-300 px-2 rounded-md" action="/shop" method="post">
+            <div class="flex justify-between items-center p-1">
+              <input type="text"
+                class="input-text text-slate-500 bg-transparent focus:outline-none placeholder:font-extralight rounded-md px-2 w-[90%]"
+                name="search" id="search" placeholder="Buscar productos">
+              <button class="pl-2 py-1 border-l border-slate-300 w-[10%]" type="submit">
+                <i class=" text-base font-bold bi bi-search mx-auto text-[#4d3efc]"></i>
+              </button>
             </div>
+          </form>
         </div>
-        <!-- NAV -->
-        <nav class="w-full bg-white mx-auto mt-4 lg:border ">
-            <ul class=" max-w-7xl mx-auto gap-3 justify-between items-center text-stone-700 hidden lg:flex">
-                <li class="flex border-x px-8 justify-between">
-                    <button class="  p-1  text-slate-600 hidden lg:block">
-                        <img class="" src="./img/menu-icon.svg" alt="">
-                    </button>
-                    <a class="font-bold p-3 uppercase text-slate-800 mt-0" href="">Categorías</a></li>
-                <li><a class="text-base hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Computacion</a></li>
-                <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Periféricos PC</a></li>
-                <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Accesorios Smart</a></li>
-                <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Electrodomésticos</a></li>
-                <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-[#4d3efc]" href="">Smart Home</a></li>
-                <li><a class="hover:border-b-4 py-3 transition-all hover:border-b-red-600 text-red-600 me-6" href="">Outlet</a></li>
-            </ul>
-        </nav>
-        <!-- FIN DE NAV -->
-    </header>
-    <!-- FIN DE HEADER -->
-    <main class="bg-gray-100">
-      <div class="bg-white w-full py-[55px] lg:py-[90px]"></div>
-        
-      <section class="w-full mt-2">
-        <div class="max-w-7xl mx-auto">
-          <div class="flex flex-col">
-            <!-- CAROUSEL -->
-            <div class="carousel-container">
-              <div class="hidden md:block relative overflow-hidden ">
-                <div class="carousel flex -z-10 transition-all">
-                  <img src="./img/banner-1.png" alt="">
-                  <img src="./img/banner-2.png" alt="">
-                  <img src="./img/banner-3.png" alt="">
-                  <img src="./img/banner-4.png" alt="">
-                </div>
-                <ul class=" flex gap-2 w-1/2 justify-center indicators z-40 translate-x-[50%] -translate-y-[250%] absolute">
-                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
-                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
-                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
-                  <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a href=""></a></li>
-                </ul>  
+      </div>
+    </div>
+    <!-- NAV -->
+    <nav class="w-full bg-white mx-auto mt-4 lg:border ">
+      <ul class=" max-w-7xl mx-auto gap-3 justify-between items-center text-stone-700 hidden lg:flex">
+        <li class="flex border-x px-8 justify-between"><button id="" class=" text-slate-600 hidden lg:justify-between lg:flex items-center gap-5 p-3"><img class="fill-stone-800" src="./img/menu-icon.svg" alt=""><span class="font-bold uppercase text-slate-800">Categorías</span></button></li>
+        <li><a class="text-base hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Computacion</a></li>
+        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Periféricos PC</a></li>
+        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Accesorios Smart</a></li>
+        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Electrodomésticos</a></li>
+        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Smart Home</a></li>
+        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-red-600 text-red-600 me-6" href="">Outlet</a></li>
+      </ul>
+
+      <!-- MENU HAMBURGUESA -->
+      <div id="nav" class="lg:hidden transition-all duration-500 fixed w-full bg-black top-0 bg-opacity-50 min-h-screen hidden">
+        <div class="relative">
+          <ul id="menu" class="lg:hidden left-0 pt-4 bg-white flex flex-col w-full max-w-md absolute transition-all duration-500 -translate-x-full z-[100] min-h-screen top-0 ">
+            <li class="flex justify-between items-center border-b px-6 pb-3 w-full"><img class="w-28" src="./img/logo/logo-header.png" alt=""><button id="close-menu"><i class="text-2xl bi bi-x-lg"></i></button></li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6"><p class="flex gap-3 items-center font-semibold"><img class="w-6" src="./img/category-icons/computacion-icono.svg" alt="">Computacion</p><i class="bi bi-caret-right"></i></li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6"><p class="flex gap-3 items-center font-semibold"><img class="w-6" src="./img/category-icons/perifericos-icono.svg" alt="">Periféricos PC</p><i class="bi bi-caret-right" pb-4></i></li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6"><p class="flex gap-3 items-center font-semibold"><img class="w-6" src="https://mundofixar.vtexassets.com/arquivos/accesorios-smart-icono.svg" alt="">Accesorios Smart</p><i class="bi bi-caret-right"></i></li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6"><p class="flex gap-3 items-center font-semibold"><img class="w-6" src="./img/category-icons/electrodomesticos-icono.svg" alt="">Electrodomésticos</p><i class="bi bi-caret-right"></i></li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6"><p class="flex gap-3 items-center font-semibold"><img class="w-6" src="./img/category-icons/otras-categorias-icono.svg" alt="">Otras Categorias</p><i class="bi bi-caret-right"></i></li>
+            <li class="flex items-center justify-between border-b w-full py-1 px-5"><a class="flex gap-3 items-center font-bold"><img class="w-10" src="./img/category-icons/outlet-icono.svg" alt="">Outlet</a></li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6"><p class="flex gap-3 items-center font-semibold"><img class="w-6" src="./img/category-icons/marcas-icono.svg" alt="">Marcas</p><i class="bi bi-caret-right"></i></li>
+            <li class="flex items-center justify-start border-b w-full py-3 px-6 bg-gradient-to-r from-[#4d3efc] to-black"><a class="flex gap-3 items-center text-white font-bold pl-8">Nosotros</a></li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6"><a class="flex gap-3 items-center px-3 font-semibold"><i class="text-[#4d3efc] bi bi-person-circle text-lg bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>Login</a><i class="bi bi-caret-right"></i></li>
+          </ul>
+        </div>
+      </div>
+      
+      
+    </nav>
+    <!-- FIN DE NAV -->
+  </header>
+  <!-- FIN DE HEADER -->
+  <main class="bg-gray-100">
+    <div class="bg-white w-full py-[55px] lg:py-[90px]"></div>
+
+    <section class="w-full mt-2">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col">
+          <!-- CAROUSEL -->
+          <div class="carousel-container">
+            <div class="hidden md:block relative overflow-hidden ">
+              <div class="carousel flex -z-10 transition-all">
+                <img src="./img/banner-1.png" alt="">
+                <img src="./img/banner-2.png" alt="">
+                <img src="./img/banner-3.png" alt="">
+                <img src="./img/banner-4.png" alt="">
               </div>
-              <div class="md:hidden relative overflow-hidden">
-                <div class="flex carousel-mobile -z-10 transition-all ease-in-out">
-                  <img src="./img/banner-1-h.png" alt="">
-                  <img src="./img/banner-2-h.png" alt="">
-                  <img src="./img/banner-3-h.png" alt="">
-                  <img src="./img/banner-4-h.png" alt="">
-                </div>
-                <ul class="flex gap-2 w-1/2 justify-center indicators z-40 translate-x-[50%] -translate-y-[250%] absolute">
-                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
-                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
-                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
-                  <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400"><a href=""></a></li>
+              <ul
+                class=" flex gap-2 w-1/2 justify-center indicators z-40 translate-x-[50%] -translate-y-[250%] absolute">
+                <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a
+                    href=""></a></li>
+                <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a
+                    href=""></a></li>
+                <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a
+                    href=""></a></li>
+                <li class="cursor-pointer carousel-indicator w-3 h-3 rounded-full bg-white border border-stone-500"><a
+                    href=""></a></li>
+              </ul>
+            </div>
+            <div class="md:hidden relative overflow-hidden">
+              <div class="flex carousel-mobile -z-10 transition-all ease-in-out">
+                <img src="./img/banner-1-h.png" alt="">
+                <img src="./img/banner-2-h.png" alt="">
+                <img src="./img/banner-3-h.png" alt="">
+                <img src="./img/banner-4-h.png" alt="">
+              </div>
+              <ul class="flex gap-2 w-1/2 justify-center indicators z-40 translate-x-[50%] -translate-y-[250%] absolute">
+                <li class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400">
+                  <a href=""></a>
+                </li>
+                <li
+                  class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400">
+                  <a href=""></a>
+                </li>
+                <li
+                  class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400">
+                  <a href=""></a>
+                </li>
+                <li
+                  class="cursor-pointer mobile-carousel-indicator w-3 h-3 rounded-full bg-white border border-slate-400">
+                  <a href=""></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- FIN DE CAROUSEL  -->
+          <div class="bg-white w-full">
+            <div class="max-w-7xl flex items-center gap-5 flex-col md:flex-row justify-center py-4 mx-auto">
+              <div class="hidden lg:block lg:pr-5">
+                <ul class="flex gap-8 items-center justify-end">
+                  <li><img src="./img/credit-cards/visa.svg" alt=""></li>
+                  <li><img src="./img/credit-cards/american-express.svg" alt=""></li>
+                  <li><img src="./img/credit-cards/mastercard.png" alt=""></li>
+                  <li><img src="./img/credit-cards/naranja.png" alt=""></li>
+                  <li><img src="./img/credit-cards/ahora-12.svg" alt=""></li>
+                  <li><img src="./img/credit-cards/ahora-18.svg" alt=""></li>
                 </ul>
               </div>
-            </div>
-            <!-- FIN DE CAROUSEL  -->
-            <div class="bg-white w-full">
-              <div class="max-w-7xl flex items-center gap-5 md:gap-20 flex-col md:flex-row justify-center py-4 mx-auto">
-                <div class="hidden lg:block">
-                  <ul class="flex gap-8 items-center justify-end">
-                    <li><img src="./img/credit-cards/visa.svg" alt=""></li>
-                    <li><img src="./img/credit-cards/american-express.svg" alt=""></li>
-                    <li><img src="./img/credit-cards/mastercard.png" alt=""></li>
-                    <li><img src="./img/credit-cards/naranja.png" alt=""></li>
-                    <li><img src="./img/credit-cards/ahora-12.svg" alt=""></li>
-                    <li><img src="./img/credit-cards/ahora-18.svg" alt=""></li>
-                  </ul>
-                </div>
-                <div>
-                  <a class="flex items-center gap-4" href="#">
-                    <i class="text-3xl bi bi-credit-card bg-clip-text text-transparent bg-gradient-to-r from-[#4d3efc] to-red-500"></i>
-                    <div class="flex flex-col">
-                      <span class="text-stone-600 font-semibold text-xs">Pagá con crédito y débito</span>
-                      <span class="text-red-500 font-semibold text-xs">Ver promociones</span>
-                    </div>  
-                  </a>
-                </div>
-                <div class="flex gap-4 items-center">
-                  <i class="text-3xl bi bi-truck w-10 h-10 bg-clip-text text-transparent bg-gradient-to-r from-[#4d3efc] to-red-500"></i>
-                  <span class="text-stone-500 font-semibold text-sm">Envios a todo el país</span>
-                </div>
-              </div>  
-            </div>
-          </div> 
-        </div>
-      </section>
-      <!-- FIN DE PRIMERA SECCION DE MI HOME -->
-
-      <!-- SECCION CAROUSEL DE PRODUCTOS -->
-
-      <div class="w-full">
-        <section class="max-w-7xl">
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </section>
-      </div>
-
-    </main>
-
-    <!-- INICIO DE FOOTER -->
-    <footer class="text-gray-600 body-font w-full border-y border-stone-00">
-        <div class="max-w-7xl mx-auto px-5 py-12 flex lg:items-center lg:flex-row lg:flex-nowrap flex-wrap flex-col">
-          <div class="w-64 flex-shrink-0 mx-auto text-center lg:w-[20%] md:mt-0 mt-10">
-              <div class="mx-auto">
-                  <img class="w-28 lg:w-40 mx-auto"src="./img/logo/logo-header.png" alt="Logo de la tienda">
-                </div>
-          </div>
-          <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left lg:justify-between lg:pr-0 text-center order-first">
-            <div class="lg:w-[30%] md:w-1/2 w-full px-4">
-              <h2 class="title-font font-medium text-[#4d3efc] tracking-widest text-base mb-6">Contacto</h2>
-              <nav class="list-none mb-10 space-y-2">
-                <li>
-                  <a class="text-gray-600 hover:text-[#4d3efc] transition-all" href="tel: 08107777123"><i class="text-sm bi bi-phone me-2 "></i> 0810 7777 123</a>
-                </li>
-                <li>
-                  <a class="text-gray-600 hover:text-[#4d3efc] transition-all" href="https://api.whatsapp.com/send?phone=543517771234"><i class="text-sm bi bi-whatsapp me-2 "></i> 351 777-1234</a>
-                </li>
-                <li>
-                  <a class="text-gray-600 hover:text-[#4d3efc] transition-all" href="mailto:info@tecno.ar"><i class="text-sm bi bi-envelope me-2 "></i> info@tecno.ar</a>
-                </li>
-                <li class="mt-4">
-                  <div class="pt-4">
-                    <span class="inline-flex space-x-3 sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-                        <a class="text-gray-500 hover:text-[#4d3efc] transition-colors text-lg" href="#">
-                          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                          </svg>
-                        </a>
-                        <a class=" text-gray-500 hover:text-[#4d3efc] transition-colors text-lg" href="#">
-                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                          </svg>
-                        </a>
-                      </span>
+              <div class="lg:px-9 lg:border-x">
+                <a class="flex items-center gap-4" href="#">
+                  <i class="text-3xl bi bi-credit-card bg-clip-text text-transparent bg-gradient-to-r from-[#4d3efc] to-red-500"></i>
+                  <div class="flex flex-col">
+                    <span class="text-stone-600 font-semibold text-xs">Pagá con crédito y débito</span>
+                    <span class="text-red-500 font-semibold text-xs">Ver promociones</span>
                   </div>
-                </li>
-              </nav>
-            </div>
-            <div class="lg:w-1/3 md:w-1/2 w-full px-4">
-              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"></h2>
-              <nav class="list-none mb-10 space-y-2">
-                <li>
-                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Cambios y devoluciones</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Envíos y entregas</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Políticas de garantías</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Términos y condiciones</a>
-                </li>
-                <li>
-                    <a class=" text-gray-800 underline decoration-1" href="#">Botón de arrepentimiento</a>
-                </li>
-              </nav>
-            </div>
-            <div class="lg:w-1/3 md:w-1/2 w-full px-4">
-              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"></h2>
-              <nav class="list-none mb-10 space-y-2">
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Nosotros</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Políticas de privacidad</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Preguntas frecuentes</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Cómo comprar</a>
-                </li>
-                <li>
-                    <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all" href="#">Contacto</a>
-                </li>
-              </nav>
+                </a>
+              </div>
+              <div class="flex gap-3 items-center lg:pl-5">
+                <i class="text-3xl bi bi-truck w-10 h-10 bg-clip-text text-transparent bg-gradient-to-r from-[#4d3efc] to-red-500"></i>
+                <span class="text-stone-500 font-semibold text-sm">Envios a todo el país</span>
+              </div>
             </div>
           </div>
         </div>
-      </footer>
-      <div class="bg-white w-full">
-        <div class="max-w-7xl mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Electro —
-            <a href="https://github.com/leandro-cajal/electro-store" rel="noopener noreferrer" class="text-[#4d3efc] ml-1" target="_blank">Leo</a>
-          </p>
+      </div>
+    </section>
+    <!-- FIN DE PRIMERA SECCION -->
+
+    <!-- SECCION CAROUSEL DE PRODUCTOS -->
+    <div class="w-full">
+      <section class="max-w-7xl">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- INICIO DE FOOTER -->
+  <footer class="text-gray-600 body-font w-full border-y border-stone-00">
+    <div class="max-w-7xl mx-auto px-5 py-12 flex lg:items-center lg:flex-row lg:flex-nowrap flex-wrap flex-col">
+      <div class="w-64 flex-shrink-0 mx-auto text-center lg:w-[20%] md:mt-0 mt-10">
+        <div class="mx-auto">
+          <img class="w-28 lg:w-40 mx-auto" src="./img/logo/logo-header.png" alt="Logo de la tienda">
         </div>
       </div>
-    <script defer src="./js/main.js"></script>
+      <div class="flex-grow flex flex-wrap md:pr-20 -mb-10  lg:justify-between lg:pr-0 text-left order-first">
+        <div class="lg:w-[30%] md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-[#4d3efc] tracking-widest text-base mb-6">Contacto</h2>
+          <nav class="list-none mb-10 space-y-2">
+            <li>
+              <a class="text-gray-600 hover:text-[#4d3efc] transition-all" href="tel: 08107777123"><i
+                  class="text-sm bi bi-phone me-2 "></i> 0810 7777 123</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-[#4d3efc] transition-all"
+                href="https://api.whatsapp.com/send?phone=543517771234"><i class="text-sm bi bi-whatsapp me-2 "></i> 351
+                777-1234</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-[#4d3efc] transition-all" href="mailto:info@tecno.ar"><i
+                  class="text-sm bi bi-envelope me-2 "></i> info@tecno.ar</a>
+            </li>
+            <li class="mt-4">
+              <div class="pt-4">
+                <span class="inline-flex space-x-3 sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                  <a class="text-gray-500 hover:text-[#4d3efc] transition-colors text-lg" href="#">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      class="w-6 h-6" viewBox="0 0 24 24">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+                  <a class=" text-gray-500 hover:text-[#4d3efc] transition-colors text-lg" href="#">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                  </a>
+                </span>
+              </div>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"></h2>
+          <nav class="list-none mb-10 space-y-2">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Cambios y devoluciones</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Envíos y entregas</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Políticas de garantías</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Términos y condiciones</a>
+            </li>
+            <li>
+              <a class=" text-gray-800 underline decoration-1" href="#">Botón de arrepentimiento</a>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"></h2>
+          <nav class="list-none mb-10 space-y-2">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Nosotros</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Políticas de privacidad</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Preguntas frecuentes</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Cómo comprar</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                href="#">Contacto</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="bg-white w-full">
+    <div class="max-w-7xl mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Electro —
+        <a href="https://github.com/leandro-cajal/electro-store" rel="noopener noreferrer" class="text-[#4d3efc] ml-1"
+          target="_blank">Leo</a>
+      </p>
+    </div>
+  </div>
+  <script defer src="./js/main.js"></script>
 </body>
 </html>
