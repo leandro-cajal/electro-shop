@@ -2,7 +2,6 @@ function setupCarousel(carouselSelector, indicatorSelector) {
     const carousel = document.querySelector(carouselSelector);
     const carouselIndicators = document.querySelectorAll(indicatorSelector);
     let currentIndex = 0;
-    let intervalId;
 
     const moveCarousel = (index) => {
         let operation = index * -100;
@@ -17,16 +16,32 @@ function setupCarousel(carouselSelector, indicatorSelector) {
         carouselIndicators[index].style.backgroundColor = 'rgb(68, 64, 60)';
     };
 
-    carouselIndicators.forEach((indicator, i) => {
-        indicator.addEventListener('click', () => {
-            currentIndex = i;
-            moveCarousel(currentIndex);
-        });
+    const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % carouselIndicators.length;
+        moveCarousel(currentIndex);
+    };
+
+    // Iniciar el intervalo para cambiar automáticamente las diapositivas cada 8 segundos
+    const intervalDuration = 8000; // 8 segundos
+    const intervalId = setInterval(nextSlide, intervalDuration);
+
+    // Detener el intervalo cuando el mouse está sobre el carrusel (opcional)
+    carousel.addEventListener('mouseover', () => {
+        clearInterval(intervalId);
+    });
+
+    // Reanudar el intervalo cuando el mouse sale del carrusel (opcional)
+    carousel.addEventListener('mouseout', () => {
+        intervalId = setInterval(nextSlide, intervalDuration);
     });
 }
 
+// Iniciar carruseles
 setupCarousel('.carousel', '.carousel-indicator');
 setupCarousel('.carousel-mobile', '.mobile-carousel-indicator');
+
+
+//MENU HAMBURGUESA
 
 
 document.addEventListener('DOMContentLoaded', () => {
