@@ -24,9 +24,7 @@
   <link rel="shortcut icon" href="./img/logo/logo-favicon.svg" type="image/x-icon">
   <link rel="icon" type="image/x-icon" href="./img/logo/logo-favicon.svg">
   <!-- SWIPER -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
   <!-- BOOTSTRAP ICONS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <!-- CSS STYLE -->
@@ -86,12 +84,15 @@
     <!-- NAV -->
     <nav class="w-full bg-white mx-auto mt-4 lg:border ">
       <ul class=" max-w-7xl mx-auto gap-3 justify-between items-center text-stone-700 hidden lg:flex">
-        <li class="flex border-x px-8 justify-between"><button id=""
+        <li class="flex border-x px-8 justify-between">
+          <button id="open-menu-full"
             class=" text-slate-600 hidden lg:justify-between lg:flex items-center gap-5 p-3"><img class="fill-stone-800"
-              src="./img/menu-icon.svg" alt=""><span
-              class="font-bold uppercase text-slate-800">Categorías</span></button></li>
+              src="./img/menu-icon.svg" alt="">
+            <span class="font-bold uppercase text-slate-800">Categorías</span>
+          </button>
+        </li>
         <li><a class="text-base hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]"
-            href="">Computacion</a></li>
+            href="">Computación</a></li>
         <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Periféricos PC</a>
         </li>
         <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Accesorios
@@ -106,53 +107,88 @@
 
       <!-- MENU HAMBURGUESA -->
       <div id="nav"
-        class="lg:hidden transition-all duration-500 fixed w-full bg-black top-0 bg-opacity-50 min-h-screen hidden">
-        <div class="relative">
+        class=" transition-all duration-500 fixed w-full bg-black top-0 bg-opacity-50 min-h-screen hidden lg:h-96 lg:top-[187px]">
+        <div id="menu-container" class="relative bg-white lg:h-full lg:max-h-[386px] lg:w-full lg:max-w-7xl lg:mx-auto z-50">
           <ul id="menu"
-            class="lg:hidden left-0 pt-4 bg-white flex flex-col w-full max-w-md absolute transition-all duration-500 -translate-x-full z-[100] min-h-screen top-0 ">
-            <li class="flex justify-between items-center border-b px-6 pb-3 w-full"><img class="w-28"
-                src="./img/logo/logo-header.png" alt=""><button id="close-menu"><i
-                  class="text-2xl bi bi-x-lg"></i></button></li>
-            <li class="flex items-center justify-between border-b w-full py-3 px-6">
-              <p class="flex gap-3 items-center font-semibold"><img class="w-6"
-                  src="./img/category-icons/computacion-icono.svg" alt="">Computacion</p><i
-                class="bi bi-caret-right"></i>
+            class="bg-white left-0 pt-4  flex flex-col w-full max-w-md absolute transition-all duration-500 -translate-x-full top-0 min-h-screen lg:translate-x-0 lg:min-h-fit  lg:pt-0 lg:max-h-[400px] lg:max-w-[221px] lg:border-r">
+            <li class="flex justify-between items-center border-b px-6 pb-3 w-full lg:hidden">
+              <img class="w-28" src="./img/logo/logo-header.png" alt="">
+              <button id="close-menu"><i class="text-2xl bi bi-x-lg"></i></button>
             </li>
-            <li class="flex items-center justify-between border-b w-full py-3 px-6">
-              <p class="flex gap-3 items-center font-semibold"><img class="w-6"
-                  src="./img/category-icons/perifericos-icono.svg" alt="">Periféricos PC</p><i class="bi bi-caret-right"
-                pb-4></i>
+            <li class=" border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+              <a class="flex items-center justify-between" href="">
+                <p class="flex gap-3 items-center"><img class="w-6 lg:hidden"
+                    src="./img/category-icons/computacion-icono.svg" alt="">Computación</p><i
+                  class="bi bi-chevron-right text-xs"></i>
+              </a>
             </li>
-            <li class="flex items-center justify-between border-b w-full py-3 px-6">
-              <p class="flex gap-3 items-center font-semibold"><img class="w-6"
-                  src="https://mundofixar.vtexassets.com/arquivos/accesorios-smart-icono.svg" alt="">Accesorios Smart
-              </p><i class="bi bi-caret-right"></i>
+            <li class="border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+              <a class="flex items-center justify-between" href="">
+                <p class="flex gap-3 items-center">
+                  <img class="w-6 lg:hidden" src="./img/category-icons/perifericos-icono.svg" alt="">Periféricos PC
+                </p>
+                <i class="bi bi-chevron-right text-xs"></i>
+              </a>
             </li>
-            <li class="flex items-center justify-between border-b w-full py-3 px-6">
-              <p class="flex gap-3 items-center font-semibold"><img class="w-6"
-                  src="./img/category-icons/electrodomesticos-icono.svg" alt="">Electrodomésticos</p><i
-                class="bi bi-caret-right"></i>
+            <li class=" border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+              <a class="flex items-center justify-between" href="">
+                <p class="flex gap-3 items-center">
+                  <img class="w-6 lg:hidden" src="https://mundofixar.vtexassets.com/arquivos/accesorios-smart-icono.svg"
+                    alt="">Accesorios Smart
+                </p>
+                <i class="bi bi-chevron-right text-xs"></i>
+              </a>
             </li>
-            <li class="flex items-center justify-between border-b w-full py-3 px-6">
-              <p class="flex gap-3 items-center font-semibold"><img class="w-6"
-                  src="./img/category-icons/otras-categorias-icono.svg" alt="">Otras Categorias</p><i
-                class="bi bi-caret-right"></i>
+            <li class="border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+              <a class="flex items-center justify-between" href="">
+                <p class="flex gap-3 items-center">
+                  <img class="w-6 lg:hidden" src="./img/category-icons/electrodomesticos-icono.svg"
+                    alt="">Electrodomésticos
+                </p>
+                <i class="bi bi-chevron-right text-xs"></i>
+              </a>
             </li>
-            <li class="flex items-center justify-between border-b w-full py-1 px-5"><a
-                class="flex gap-3 items-center font-bold"><img class="w-10" src="./img/category-icons/outlet-icono.svg"
-                  alt="">Outlet</a></li>
-            <li class="flex items-center justify-between border-b w-full py-3 px-6">
-              <p class="flex gap-3 items-center font-semibold"><img class="w-6"
-                  src="./img/category-icons/marcas-icono.svg" alt="">Marcas</p><i class="bi bi-caret-right"></i>
+            <li class=" border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+              <a class="flex items-center justify-between" href="">
+                <p class="flex gap-3 items-center">
+                  <img class="w-6 lg:hidden" src="./img/category-icons/otras-categorias-icono.svg" alt="">Otras
+                  Categorias
+                </p>
+                <i class="bi bi-chevron-right text-xs"></i>
+              </a>
             </li>
-            <li
-              class="flex items-center justify-start border-b w-full py-3 px-6 bg-gradient-to-r from-[#4d3efc] to-black">
-              <a class="flex gap-3 items-center text-white font-bold pl-8">Nosotros</a></li>
-            <li class="flex items-center justify-between border-b w-full py-3 px-6"><a
-                class="flex gap-3 items-center px-3 font-semibold"><i
-                  class="text-[#4d3efc] bi bi-person-circle text-lg bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>Login</a><i
-                class="bi bi-caret-right"></i></li>
+            <li class=" border-b w-full h-11 px-5 lg:px-6 lg:py-3 hover:bg-[#4d3efc] hover:text-white transition-all">
+              <a class="my-auto flex gap-3 items-center" href="">
+                <p class="flex items-center">
+                  <img class="w-10 lg:hidden" src="./img/category-icons/outlet-icono.svg" alt="">Outlet
+                </p>
+              </a>
+            </li>
+            <li class="border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+              <a class="flex items-center justify-between " href="">
+                <p class="flex gap-3 items-center">
+                  <img class="w-6 lg:hidden" src="./img/category-icons/marcas-icono.svg" alt="">Marcas
+                </p>
+                <i class="bi bi-chevron-right text-xs"></i>
+              </a>
+            </li>
+            <li class="border-b w-full py-3 px-6 bg-gradient-to-r from-black to-blue-900 lg:py-2">
+              <a href="" class="flex gap-3 justify-start items-center text-white w-full">
+                <img class="w-6 brightness-200" src="./img/logo/logo-fav.png" alt="">
+                Nosotros
+              </a>
+            </li>
+            <li class="flex items-center justify-between border-b w-full py-3 px-6 lg:hidden">
+              <a class="flex gap-3 items-center">
+                <i
+                  class="text-[#4d3efc] bi bi-person-circle text-lg bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>
+                Login
+              </a>
+              <i class="bi bi-chevron-right text-xs"></i>
+            </li>
           </ul>
+          <div class="w-[55%] h-full absolute lg:left-[220px] z-[100]"></div>
+          <div class="w-1/3 z-[100] absolute right-0 h-full"></div>
         </div>
       </div>
 
@@ -250,10 +286,96 @@
       </div>
     </section>
     <!-- FIN DE PRIMERA SECCION -->
-    
-    <!-- SECCION CAROUSEL DE PRODUCTOS -->
-    <div class="w-full relative py-16">
-      
+
+    <!-- SECCION CARRUSEL DE PRODUCTOS -->
+    <div class="w-full py-16">
+      <section class="max-w-7xl mx-auto">
+        <!-- REMOVER HIDDEN PARA QUE FUNCIONE BIEN -->
+        <div id="carousel-cat-container" class="overflow-hidden relative w-full mx-auto hidden lg:block">
+
+          <!-- BOTON DE PREVIO DEL CARRUSEL -->
+          <button id="carousel-btn-prev" class="absolute transform left-0 h-1/2 text-center top-1/2 -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+
+          <!-- LISTA DE ELEMENTOS DEL CARRUSEL -->
+          <ul id="carousel-categories" class="flex transition ease-in-out justify-start gap-4 relative py-8">
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/auriculares.png" alt="">
+                  <p class="text-base font-semibold">Auriculares</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/parlantes.png" alt="">
+                  <p class="text-base font-semibold">parlantes</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/smartwatch.png" alt="">
+                  <p class="text-base font-semibold">Smartwatches</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/combos.png" alt="">
+                  <p class="text-base font-semibold">Combos</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/placa-de-video.png" alt="">
+                  <p class="text-base font-semibold">Placas de video</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/electrodomesticos.png" alt="">
+                  <p class="text-base font-semibold">Electrodomésticos</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/mouse-y-teclado.png" alt="">
+                  <p class="text-base font-semibold">Mouse y teclado</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/3 carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-blue-600 transition-colors"
+                    src="./img/category/notebook.png" alt="">
+                  <p class="text-base font-semibold">Notebooks</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <!-- BOTON DE SIGUIENTE DEL CARRUSEL -->
+          <button id="carousel-btn-next" class="absolute right-0 h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+        </div>
+      </section>
     </div>
 
   </main>
@@ -364,6 +486,11 @@
       </p>
     </div>
   </div>
+
+
+  <!-- SWIPER -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- JS -->
   <script defer src="./js/main.js"></script>
 </body>
 
