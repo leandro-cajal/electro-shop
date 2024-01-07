@@ -202,35 +202,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // CARRUSEL DE CATEGORIAS HOME
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Selecciona elementos del DOM
-    const prevButton = document.getElementById("carousel-btn-prev");
-    const nextButton = document.getElementById("carousel-btn-next");
-    const carouselContainer = document.getElementById("carousel-cat-container");
-    const carouselList = document.getElementById("carousel-categories");
-
-    // Calcula la anchura de un elemento y el margen
-    const itemWidth = carouselList.firstElementChild.clientWidth + 16; // Incluye el margen de 4px de cada lado
-    const itemsToShow = 6; // Número de elementos a mostrar en el carrusel
-    const scrollIncrement = itemWidth * 2; // Desplazamiento en píxeles al hacer clic en los botones
-
-    // Configura el evento click para los botones previo y siguiente
-    prevButton.addEventListener("click", function () {
-      scrollCarousel("prev");
-    });
-
-    nextButton.addEventListener("click", function () {
-      scrollCarousel("next");
-    });
-
-    // Función para desplazar el carrusel
-    function scrollCarousel(direction) {
-      const currentScroll = carouselContainer.scrollLeft;
-
-      if (direction === "prev") {
-        carouselContainer.scrollLeft = Math.max(0, currentScroll - scrollIncrement);
-      } else {
-        carouselContainer.scrollLeft = Math.min(carouselList.scrollWidth - carouselContainer.clientWidth, currentScroll + scrollIncrement);
-      }
-    }
-  });
