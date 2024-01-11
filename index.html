@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,8 +22,7 @@
   <meta property="og:type" content="website">
   <link rel="shortcut icon" href="./img/logo/logo-favicon.svg" type="image/x-icon">
   <link rel="icon" type="image/x-icon" href="./img/logo/logo-favicon.svg">
-  <!-- SWIPER -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
   <!-- BOOTSTRAP ICONS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <!-- CSS STYLE -->
@@ -187,8 +185,8 @@
               <i class="bi bi-chevron-right text-xs"></i>
             </li>
           </ul>
-          <div class="w-[55%] h-full absolute lg:left-[220px] z-[100] bg-black"></div>
-          <div class="w-1/3 bg-cyan-400 z-[100] absolute right-0 h-full"></div>
+          <div class="w-[55%] h-full absolute lg:left-[220px] z-[100] "></div>
+          <div class="w-1/3  z-[100] absolute right-0 h-full"></div>
         </div>
       </div>
 
@@ -293,11 +291,11 @@
         <div id="carousel-cat-container" class="overflow-hidden relative w-full mx-auto">
 
           <!-- BOTON DE PREVIO DEL CARRUSEL -->
-          <button id="carousel-btn-prev" class="absolute transform left-0 h-1/2 text-center top-1/2 -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+          <button id="carousel-btn-prev" class="absolute transform hidden md:block md:left-2 left-0 h-1/2 text-center top-1/2 -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
 
           <!-- LISTA DE ELEMENTOS DEL CARRUSEL -->
-          <ul id="carousel-categories" class="flex transition ease-in-out justify-start gap-4 relative py-8 w-[133%]">
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item ml-2">
+          <ul id="carousel-categories" class="hidden lg:flex transition ease-in-out justify-start gap-8 relative py-8 w-[300%] lg:w-[130%]">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item ml-9">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -306,7 +304,7 @@
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -315,7 +313,7 @@
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -324,7 +322,7 @@
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -333,7 +331,7 @@
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -342,7 +340,7 @@
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -351,7 +349,7 @@
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -360,7 +358,7 @@
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-1/4 carousel-cat-item">
+            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
@@ -372,7 +370,7 @@
           </ul>
 
           <!-- BOTON DE SIGUIENTE DEL CARRUSEL -->
-          <button id="carousel-btn-next" class="absolute right-0 h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+          <button id="carousel-btn-next" class="absolute hidden md:block md:right-2 lg:right-0 h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
         </div>
       </section>
     </div>
@@ -381,17 +379,17 @@
     <!-- SECCION DE NOVEDADES PARA PC -->
     <section class="max-w-7xl mx-auto flex flex-col lg:flex-row px-6 gap-6 pb-32">
 
-      <div class="flex flex-col sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
-        <picture class="h-1/5 sm:w-2/5"><img class="h-full w-full rounded-tl-md rounded-tr-md md:rounded-tr-none md:rounded-bl-md" src="./img/articles/article-perifericos.png" alt=""></picture>
+      <div class="flex flex-col m-auto max-w-sm sm:max-w-lg lg:max-w-full sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
+        <picture class="h-1/5 md:h-full sm:w-2/5"><img class="h-full w-full rounded-tl-md rounded-tr-md sm:rounded-tr-none sm:rounded-bl-md" src="./img/articles/article-perifericos.png" alt=""></picture>
         <article class="h-3/5 sm:w-3/5 py-10 md:py-3 px-8">
           <h5 class="text-lg md:text-xl font-bold">Rodeá tu compu con lo mejor</h5>
           <p class="text-sm py-5 md:text-base">Teclado, mouse, auris, joystick, webcam, micrófono, ¿qué te falta? Para casa o para la ofi, para la PC de escritorio o la notebook, lo mejor está acá. Explorá tranqui.</p>
           <a class="text-base rounded-3xl px-2 py-2 md:px-4 font-bold text-[#4d3efc] border-[#4d3efc] border hover:bg-[#4d3efc] hover:text-white transition-all" href="">Ver Periféricos</a>
         </article>
       </div>
-
-      <div class="flex flex-col sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
-        <picture class="h-1/5 sm:w-2/5"><img class="h-full w-full rounded-tl-md rounded-tr-md md:rounded-tr-none md:rounded-bl-md" src="./img/articles/article-componentes.png" alt=""></picture>
+      
+      <div class="flex flex-col m-auto max-w-sm sm:max-w-lg lg:max-w-full sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
+        <picture class="h-1/5 md:h-full sm:w-2/5"><img class="h-full w-full rounded-tl-md rounded-tr-md sm:rounded-tr-none sm:rounded-bl-md" src="./img/articles/article-componentes.png" alt=""></picture>
         <article class="h-3/5 sm:w-3/5 py-10 md:py-3 px-8">
           <h5 class="text-lg md:text-xl font-bold">Armá tu nave espacial como querés</h5>
           <p class="py-5">¿Una placa de video para tirar el nuevo GTA? ¿Un disco sólido para almacenar tus laburos? ¿Más RAM para agilizar las cosas? No dudes más, pasá y encontrá lo que necesita tu PC
