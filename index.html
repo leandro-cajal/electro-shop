@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,7 +107,8 @@
       <!-- MENU HAMBURGUESA -->
       <div id="nav"
         class=" transition-all duration-500 fixed w-full bg-black top-0 bg-opacity-50 min-h-screen hidden lg:h-96 lg:top-[187px]">
-        <div id="menu-container" class="relative bg-white lg:h-full lg:max-h-[386px] lg:w-full lg:max-w-7xl lg:mx-auto z-50">
+        <div id="menu-container"
+          class="relative bg-white lg:h-full lg:max-h-[386px] lg:w-full lg:max-w-7xl lg:mx-auto z-50">
           <ul id="menu"
             class="bg-white left-0 pt-4  flex flex-col w-full max-w-md absolute transition-all duration-500 -translate-x-full top-0 min-h-screen lg:translate-x-0 lg:min-h-fit  lg:pt-0 lg:max-h-[400px] lg:max-w-[221px] lg:border-r">
             <li class="flex justify-between items-center border-b px-6 pb-3 w-full lg:hidden">
@@ -291,86 +293,235 @@
         <div id="carousel-cat-container" class="overflow-hidden relative w-full mx-auto">
 
           <!-- BOTON DE PREVIO DEL CARRUSEL -->
-          <button id="carousel-btn-prev" class="absolute transform hidden md:block md:left-2 left-0 h-1/2 text-center top-1/2 -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+          <button id="carousel-btn-prev"
+            class="absolute transform hidden md:block md:left-2 left-0 h-1/2 text-center top-1/2 -translate-y-1/2 z-40"><i
+              class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
 
           <!-- LISTA DE ELEMENTOS DEL CARRUSEL -->
-          <ul id="carousel-categories" class="hidden lg:flex transition ease-in-out justify-start gap-8 relative py-8 w-[300%] lg:w-[130%]">
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item ml-9">
+          <ul id="carousel-categories"
+            class="flex transition ease-out justify-start gap-8 relative w-[1350%] py-8 md:w-[750%] lg:w-[390%]">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item ml-9">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/auriculares.png" alt="">
-                  <p class="text-base font-semibold">Auriculares</p>
+                  <p class="text-2xl lg:text-base font-semibold">Auriculares</p>
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/parlantes.png" alt="">
-                  <p class="text-base font-semibold">parlantes</p>
+                  <p class="text-2xl lg:text-base font-semibold">Parlantes</p>
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/smartwatch.png" alt="">
-                  <p class="text-base font-semibold">Smartwatches</p>
+                  <p class="text-2xl lg:text-base font-semibold">Smartwatches</p>
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/combos.png" alt="">
-                  <p class="text-base font-semibold">Combos</p>
+                  <p class="text-2xl lg:text-base font-semibold">Combos</p>
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/placa-de-video.png" alt="">
-                  <p class="text-base font-semibold">Placas de video</p>
+                  <p class="text-2xl lg:text-base font-semibold">Placas de video</p>
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/electrodomesticos.png" alt="">
-                  <p class="text-base font-semibold">Electrodomésticos</p>
+                  <p class="text-2xl lg:text-base font-semibold">Electrodomésticos</p>
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/mouse-y-teclado.png" alt="">
-                  <p class="text-base font-semibold">Mouse y teclado</p>
+                  <p class="text-2xl lg:text-base font-semibold">Mouse y teclado</p>
                 </div>
               </a>
             </li>
-            <li class="w-1/3 lg:w-[40%] carousel-cat-item">
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
               <a href="">
                 <div class="flex flex-col items-center gap-2 justify-center mt-4">
                   <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
                     src="./img/category/notebook.png" alt="">
-                  <p class="text-base font-semibold">Notebooks</p>
+                  <p class="text-2xl lg:text-base font-semibold">Notebooks</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/auriculares.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Auriculares</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/parlantes.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Parlantes</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/smartwatch.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Smartwatches</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/combos.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Combos</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/placa-de-video.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Placas de video</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/electrodomesticos.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Electrodomésticos</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/mouse-y-teclado.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Mouse y teclado</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/notebook.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Notebooks</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/auriculares.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Auriculares</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/parlantes.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Parlantes</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/smartwatch.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Smartwatches</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/combos.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Combos</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/placa-de-video.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Placas de video</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/electrodomesticos.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Electrodomésticos</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/mouse-y-teclado.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Mouse y teclado</p>
+                </div>
+              </a>
+            </li>
+            <li class="w-1/12 max-w-[250px] md:w-1/3 lg:w-[40%] carousel-cat-item">
+              <a href="">
+                <div class="flex flex-col items-center gap-2 justify-center mt-4">
+                  <img class="bg-white rounded-full hover:outline outline-[#4d3efc] transition-colors"
+                    src="./img/category/notebook.png" alt="">
+                  <p class="text-2xl lg:text-base font-semibold">Notebooks</p>
                 </div>
               </a>
             </li>
           </ul>
 
           <!-- BOTON DE SIGUIENTE DEL CARRUSEL -->
-          <button id="carousel-btn-next" class="absolute hidden md:block md:right-2 lg:right-0 h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+          <button id="carousel-btn-next"
+            class="absolute hidden md:block md:right-2 lg:right-0 h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i
+              class="bg-white rounded-full px-4 py-3 shadow-xl bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
         </div>
       </section>
     </div>
@@ -379,29 +530,64 @@
     <!-- SECCION DE NOVEDADES PARA PC -->
     <section class="max-w-7xl mx-auto flex flex-col lg:flex-row px-6 gap-6 pb-32">
 
-      <div class="flex flex-col m-auto max-w-sm sm:max-w-lg lg:max-w-full sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
-        <picture class="h-1/5 md:h-full sm:w-2/5"><img class="h-full w-full rounded-tl-md rounded-tr-md sm:rounded-tr-none sm:rounded-bl-md" src="./img/articles/article-perifericos.png" alt=""></picture>
+      <div
+        class="flex flex-col m-auto max-w-sm sm:max-w-lg lg:max-w-full sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
+        <picture class="h-1/5 md:h-full sm:w-2/5"><img
+            class="h-full w-full rounded-tl-md rounded-tr-md sm:rounded-tr-none sm:rounded-bl-md"
+            src="./img/articles/article-perifericos.png" alt=""></picture>
         <article class="h-3/5 sm:w-3/5 py-10 md:py-3 px-8">
           <h5 class="text-lg md:text-xl font-bold">Rodeá tu compu con lo mejor</h5>
-          <p class="text-sm py-5 md:text-base">Teclado, mouse, auris, joystick, webcam, micrófono, ¿qué te falta? Para casa o para la ofi, para la PC de escritorio o la notebook, lo mejor está acá. Explorá tranqui.</p>
-          <a class="text-base rounded-3xl px-2 py-2 md:px-4 font-bold text-[#4d3efc] border-[#4d3efc] border hover:bg-[#4d3efc] hover:text-white transition-all" href="">Ver Periféricos</a>
+          <p class="text-sm py-5 md:text-base">Teclado, mouse, auris, joystick, webcam, micrófono, ¿qué te falta? Para
+            casa o para la ofi, para la PC de escritorio o la notebook, lo mejor está acá. Explorá tranqui.</p>
+          <a class="text-base rounded-3xl px-2 py-2 md:px-4 font-bold text-[#4d3efc] border-[#4d3efc] border hover:bg-[#4d3efc] hover:text-white transition-all"
+            href="">Ver Periféricos</a>
         </article>
       </div>
-      
-      <div class="flex flex-col m-auto max-w-sm sm:max-w-lg lg:max-w-full sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
-        <picture class="h-1/5 md:h-full sm:w-2/5"><img class="h-full w-full rounded-tl-md rounded-tr-md sm:rounded-tr-none sm:rounded-bl-md" src="./img/articles/article-componentes.png" alt=""></picture>
+
+      <div
+        class="flex flex-col m-auto max-w-sm sm:max-w-lg lg:max-w-full sm:flex-row gap-2 bg-white lg:h-full lg:max-h-[650px] lg:w-1/2 rounded-md shadow-2xl">
+        <picture class="h-1/5 md:h-full sm:w-2/5"><img
+            class="h-full w-full rounded-tl-md rounded-tr-md sm:rounded-tr-none sm:rounded-bl-md"
+            src="./img/articles/article-componentes.png" alt=""></picture>
         <article class="h-3/5 sm:w-3/5 py-10 md:py-3 px-8">
           <h5 class="text-lg md:text-xl font-bold">Armá tu nave espacial como querés</h5>
-          <p class="py-5">¿Una placa de video para tirar el nuevo GTA? ¿Un disco sólido para almacenar tus laburos? ¿Más RAM para agilizar las cosas? No dudes más, pasá y encontrá lo que necesita tu PC
+          <p class="py-5">¿Una placa de video para tirar el nuevo GTA? ¿Un disco sólido para almacenar tus laburos? ¿Más
+            RAM para agilizar las cosas? No dudes más, pasá y encontrá lo que necesita tu PC
           </p>
-          <a class="text-base rounded-3xl px-2 py-2 md:px-4 font-bold text-[#4d3efc] border-[#4d3efc] border hover:bg-[#4d3efc] hover:text-white transition-all" href="">Ver Componentes</a>
+          <a class="text-base rounded-3xl px-2 py-2 md:px-4 font-bold text-[#4d3efc] border-[#4d3efc] border hover:bg-[#4d3efc] hover:text-white transition-all"
+            href="">Ver Componentes</a>
         </article>
       </div>
     </section>
     <!-- FIN DE SECCION DE NOVEDADES PARA PC -->
+    <!-- SECCION CARRUSEL PRODUCTOS DESTACADOS -->
+    <section class="mx-auto max-w-7xl pb-10 relative">
+      <button id="carousel-btn-prev"
+        class="absolute transform hidden md:block -left-2 h-1/2 text-center top-1/2 -translate-y-1/2 z-40">
+        <i
+          class="bg-white rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+      <button id="carousel-btn-next"
+        class="absolute hidden md:block -right-3  h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i
+          class="bg-white rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+      <section class="overflow-hidden relative text-left h-[600px]">
+        <div class="inline-block mb-8 ml-4">
+          <h3 class="font-bold text-center inline-block lg:text-2xl pb-5 rounded-sm lg:border-[#4d3efc]">
+            Productos Destacados</h3>
+          <div class="h-[6px] w-full bg-[#4d3efc] rounded-full"></div>
+        </div>
 
+        <div class="max-w-7xl mx-auto overflow-hidden absolute h-full w-full">
+
+
+          <div id="carousel-top-prods" class="carousel-products-container ">
+          </div>
+
+
+        </div>
+
+      </section>
+    </section>
   </main>
-
   <!-- INICIO DE FOOTER -->
   <footer class="text-gray-600 body-font w-full border-y border-stone-00">
     <div class="max-w-7xl mx-auto px-5 py-12 flex lg:items-center lg:flex-row lg:flex-nowrap flex-wrap flex-col">
@@ -508,9 +694,6 @@
       </p>
     </div>
   </div>
-
-
-
   <!-- JS -->
   <script defer src="./js/main.js"></script>
 </body>

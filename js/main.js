@@ -1,3 +1,92 @@
+let carrito = [];
+let PRODUCTOS = [];
+let PROBANDO = [];
+const CAROUSEL_TOP_PRODUCTS_CONTAINER = document.querySelector("#carousel-top-prods");
+
+// Función para cargar productos y inicializar la aplicación
+async function cargarProductos() {
+    try {
+        const response = await fetch('../productos.json');
+        if (!response.ok) {
+            throw new Error(`Error al cargar el archivo JSON. Código de error: ${response.status}`);
+        }
+
+        PRODUCTOS = await response.json();
+
+        // Ejemplo: Llamada a la función para mostrar productos en el carrusel
+        mostrarProductosEnCarrusel();
+    } catch (error) {
+        console.error('Error al iniciar la aplicación:', error);
+    }
+    return PRODUCTOS
+}
+
+
+ cargarProductos();
+// Función para mostrar productos en el carrusel
+function mostrarProductosEnCarrusel() {
+    // Puedes acceder a PRODUCTOS aquí y realizar cualquier operación necesaria
+
+    // Ejemplo: Mostrar productos en el carrusel
+    for (let x = 1; x < 5; x++) {
+        const randomIndex = createRandomNumber(0, PRODUCTOS.length - 1);
+        const producto = PRODUCTOS[randomIndex];
+        let newProduct = createProductElement(producto.id, producto.imagenes[0], producto.nombre, producto.precio);
+        const div = document.createElement('div');
+        div.innerHTML = newProduct;
+        div.classList.add("carousel-product-item");
+
+        CAROUSEL_TOP_PRODUCTS_CONTAINER.appendChild(div);
+    }
+}
+
+function createRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function createProductElement(id, imgSrc, title, discountPrice) {
+    let discount = 50;
+    let realPrice = discountPrice * 2;
+    let savePrice = realPrice - discountPrice;
+    savePrice = savePrice.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    realPrice = realPrice.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    discountPrice = discountPrice.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    return `
+    <a id="${id}" href="" class="h-full w-full block">
+      <article class="carousel-product-card">
+        <div class ="card-product-img-container">
+            <img class="carousel-product-img" src="${imgSrc}" alt="">
+            <div class="saved-price">
+                <span>AHORRÁS $ ${savePrice}</span>
+            </div>
+        </div>
+        <h6 class="card-product-card-title">${title}</h6>
+        <div class="carousel-product-card-inside">
+          <div class="carousel-product-text">
+            <span class="carousel-product-old-price">$${realPrice}</span>
+            <p class="carousel-product-price">$${discountPrice}</p>
+          </div>
+          <div>
+            <p class="carousel-product-off">${discount}% off</p>
+          </div>
+        </div>
+      </article>
+    </a>
+  `;
+}
+
+
+
+
+
+
+
+
+// Obtener el contenedor del carrusel
+const carouselContainer = document.getElementById('carousel-container');
+
+
 function setupCarousel(carouselSelector, indicatorSelector) {
     const CAROUSEL = document.querySelector(carouselSelector);
     const carouselIndicators = document.querySelectorAll(indicatorSelector);
@@ -7,8 +96,9 @@ function setupCarousel(carouselSelector, indicatorSelector) {
     let intervalId;
 
     const moveCarousel = () => {
-        const operation = currentIndex * -100;
+        let operation = currentIndex * -100;
         CAROUSEL.style.transform = `translateX(${operation}%)`;
+        CAROUSEL.style.transition = 'transform 0.3s ease-in-out';
         updateIndicators();
     };
 
@@ -128,36 +218,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const NAV = document.querySelector("#nav");
     const ABRIR2 = document.querySelector("#open-menu-full");
     const MENU_CONTAINER = document.querySelector("#menu-container")
-    let intervalId;
 
     const ABRIR_MENU = () => {
         NAV.style.display = 'block';
-        if (window.innerWidth < 1024){
-        // Espera a que termine la transición antes de aplicar la transformación del menú
-        setTimeout(() => {
-            MENU.style.transition = 'transform 0.3s';
-            MENU.style.transform = 'translateX(0)';
-        }, 50); // 50 milisegundos de retraso antes de aplicar la transición
+        if (window.innerWidth < 1024) {
+            // Espera a que termine la transición antes de aplicar la transformación del menú
+            setTimeout(() => {
+                MENU.style.transition = 'transform 0.3s';
+                MENU.style.transform = 'translateX(0)';
+            }, 50); // 50 milisegundos de retraso antes de aplicar la transición
         }
         // Detener el intervalo del carrusel cuando se abre el menú
-        clearInterval(intervalId);
     };
-    
+
     const CERRAR_MENU = () => {
         if (window.innerWidth < 1024) {
             MENU.style.transition = 'transform 0.3s';
             MENU.style.transform = 'translateX(-100%)';
         }
-    
+
         // Espera a que termine la transición antes de ocultar el elemento
         setTimeout(() => {
             NAV.style.display = 'none';
         }, 300); // 300 milisegundos, ajusta según la duración de tu transición
-    
-        // Reanudar el intervalo del carrusel cuando se cierra el menú
-        intervalId = setInterval(nextSlide, intervalDuration);
     };
-      
+
     window.addEventListener('resize', () => {
         // Al cambiar el tamaño de la ventana, verifica si estás en mobile o desktop
         if (window.innerWidth >= 1024) {
@@ -172,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
- 
+
     // Agregar evento de clic al documento para cerrar el menú cuando se hace clic fuera
     document.addEventListener('click', (event) => {
         const IS_CLICK_INSIDE_MENU = MENU_CONTAINER.contains(event.target);
@@ -208,61 +293,58 @@ const NEXT_BTN = document.querySelector("#carousel-btn-next");
 let currentIndexCustom = 0;
 let startXCustom = 0;
 let draggingCustom = false;
-
-function handleTouchStart(e) {
-  draggingCustom = true;
-  startXCustom = e.touches[0].clientX;
+let lastTranslateX = 0;
+function handleTouchStart(event) {
+    draggingCustom = true;
+    startXCustom = event.touches[0].clientX - lastTranslateX;
 }
 
-function handleTouchMove(e) {
-  if (!draggingCustom) return;
+function handleTouchMove(event) {
+    if (!draggingCustom) return;
 
-  const deltaX = e.touches[0].clientX - startXCustom;
-  let translateValue = -currentIndexCustom * 210 + deltaX;
+    const deltaX = event.touches[0].clientX - startXCustom;
+    lastTranslateX = -currentIndexCustom * 200 + deltaX;
 
-  // Verificar el ancho de la pantalla antes de aplicar el desplazamiento máximo
-  if (window.innerWidth > 1023) {
-    translateValue = Math.max(-420, Math.min(0, translateValue));
-  } else {
-    translateValue = Math.max(-2030, Math.min(0, translateValue));
-  }
+    if (window.innerWidth > 1023) {
+        lastTranslateX = Math.max(-3400, Math.min(0, lastTranslateX));
+    } else if (window.innerWidth > 768) {
+        lastTranslateX = Math.max(-5000, Math.min(0, lastTranslateX));
+    } else {
+        lastTranslateX = Math.max(-6200, Math.min(0, lastTranslateX));
+    }
 
-  CAROUSEL_LIST.style.transition = "none";
-  CAROUSEL_LIST.style.transform = `translateX(${translateValue}px)`;
+    CAROUSEL_LIST.style.transition = "none";
+    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
 }
 
-function handleTouchEnd(e) {
-  if (!draggingCustom) return;
+function handleTouchEnd(event) {
+    if (!draggingCustom) return;
 
-  draggingCustom = false;
-  CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
+    draggingCustom = false;
+    CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
 
-  // Restablecer el valor de startXCustom a 0
-  startXCustom = 0;
+    const deltaX = event.changedTouches[0].clientX - startXCustom;
 
-  if (startXCustom > 0 && e.changedTouches[0].clientX - startXCustom > 50) {
-    if (currentIndexCustom > 0) currentIndexCustom--;
-  } else if (startXCustom < 0 && e.changedTouches[0].clientX - startXCustom < -50) {
-    if (currentIndexCustom < CAROUSEL_LIST.querySelectorAll("li").length - 1) currentIndexCustom++;
-  }
+    if (Math.abs(deltaX) > 50) {
+        handleSlideChange(deltaX > 0 ? -1 : 1);
+    }
 
-  let translateValue = -currentIndexCustom * 210;
+    let startXCustom = 0;
+    lastTranslateX = -currentIndexCustom * 200 + (startXCustom - startX);
 
-  // Ajustar el valor máximo de desplazamiento
-  if (window.innerWidth > 1023) {
-    translateValue = Math.max(-420, Math.min(0, translateValue));
-  } else {
-    translateValue = Math.max(-2030, Math.min(0, translateValue));
-  }
+    if (window.innerWidth > 1023) {
+        lastTranslateX = Math.max(-3800, Math.min(0, lastTranslateX));
+    } else {
+        lastTranslateX = Math.max(-3800, Math.min(0, lastTranslateX));
+    }
 
-  CAROUSEL_LIST.style.transform = `translateX(${translateValue}px)`;
+    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
 }
 
-// Añadir el evento de redimensionamiento para actualizar el comportamiento en tiempo real
 window.addEventListener("resize", function () {
-  handleTouchMove({
-    touches: [{ clientX: startXCustom }],
-  });
+    handleTouchMove({
+        touches: [{ clientX: startXCustom }],
+    });
 });
 
 CAROUSEL_LIST.addEventListener("touchstart", handleTouchStart);
@@ -270,60 +352,52 @@ CAROUSEL_LIST.addEventListener("touchmove", handleTouchMove);
 CAROUSEL_LIST.addEventListener("touchend", handleTouchEnd);
 
 NEXT_BTN.addEventListener("click", function () {
-  if (currentIndexCustom < CAROUSEL_LIST.querySelectorAll("li").length - 1) {
-    currentIndexCustom++;
-    let translateValue = -currentIndexCustom * 210;
+    const carouselItems = CAROUSEL_LIST.querySelectorAll(".carousel-cat-item");
 
-    // Ajustar el valor máximo de desplazamiento
-    if (window.innerWidth > 1023) {
-      translateValue = Math.max(-420, translateValue);
+    if (currentIndexCustom < carouselItems.length - 1) {
+        lastTranslateXBeforeChange = lastTranslateX;
+        currentIndexCustom++;
+        lastTranslateX = -currentIndexCustom * 418;
+
+        if (window.innerWidth > 1023) {
+            lastTranslateX = Math.max(-3600, lastTranslateX);
+        } else {
+            lastTranslateX = Math.max(-3800, lastTranslateX);
+        }
+
+        CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
+        CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
     } else {
-      translateValue = Math.max(-2030, translateValue);
+        restoreToBeginning();
     }
-
-    CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
-    CAROUSEL_LIST.style.transform = `translateX(${translateValue}px)`;
-  }
 });
 
 PREV_BTN.addEventListener("click", function () {
-  if (currentIndexCustom > 0) {
-    currentIndexCustom--;
-    let translateValue = -currentIndexCustom * 210;
+    if (currentIndexCustom > 0) {
+        lastTranslateXBeforeChange = lastTranslateX;
+        currentIndexCustom--;
+        lastTranslateX = -currentIndexCustom * 418;
 
-    // Ajustar el valor máximo de desplazamiento
-    if (window.innerWidth > 1023) {
-      translateValue = Math.max(-420, translateValue);
-    } else {
-      translateValue = Math.max(-2030, translateValue);
+        if (window.innerWidth > 1023) {
+            lastTranslateX = Math.max(-3800, lastTranslateX);
+        } else {
+            lastTranslateX = Math.max(-3800, lastTranslateX);
+        }
+
+        CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
+        CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
     }
-
-    CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
-    CAROUSEL_LIST.style.transform = `translateX(${translateValue}px)`;
-  }
 });
 
+//función para restaurar la posición 
+function restoreToBeginning() {
+    currentIndexCustom = 0;
+    lastTranslateX = 0;
+    CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
+    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
+}
+
+const TopProductsContainer = document.querySelector("#carrusel-top-prods");
 
 
 
-// FUNCION CONSTRUCTORA PRODUCTOS
-
-function Producto(id, nombre, precio, imagenes, detalles, categoria, subcategoria, stock) {
-    this.id = id;
-    this.nombre = nombre;
-    this.precio = precio;
-    this.imagenes = imagenes;
-    this.detalles = detalles;
-    this.categoria = categoria;
-    this.subcategoria = subcategoria;
-    this.stock = stock;
-  }
-
-  // Creando instancias de Producto manualmente
-const PRODUCTO_1 = new Producto(1, "Placa de Video Colorful GTX1650 4GB NB 4GD6-V", 332199, ['../img/products/id-1/img-1.webp', '../img/products/id-1/img-2.webp'],["Placa de Video Colorful GTX 1650 4GB GDDR6 NB con modelo GTX1650 4GB NB 4GD6-V y chipset NVIDIA GeForce® GTX 1650. Ofrece un rendimiento con reloj de núcleo de 1410Mhz / 1710Mhz y memoria efectiva de 12Gbps. Con 4GB de memoria GDDR6, interfaz de memoria de 128 bits y soporte para DirectX 12.1 y OpenGL 4.5. Incluye puertos 1x DVI-D, 1x HDMI y 1x DisplayPort 1.4."], "Computacion", "Placas de video",3);
-const PRODUCTO_2 = new Producto(2, "Placa de Video Colorful RTX2060 NB V2 6GB REACONDICIONADA", 199999, ['../img/products/id-2/img-1.webp', '../img/products/id-2/img-2.webp'],["Esta placa reacondicionada se usó en minería durante 3 meses, fue probada en juegos para verificar su rendimiento y tiene una garantía de 3 meses. No incluye la caja original. Nvidia, líder en fabricación de placas de video, asegura calidad para una experiencia óptima en tu computadora. Con 1920 núcleos, ofrece una interfaz sorprendente y es ideal para el procesamiento de tecnologías modernas con grandes volúmenes de datos. Modelo: Colorful RTX2060 NB V2 6GB."], "Computacion", "Placas de video",4);
-const PRODUCTO_3 = new Producto(3, "Placa de Video Colorful GTX1660 6GB Super REACONDICIONADA", 180000, '../img/products/id-3/img-1.webp',"La Colorful GeForce GTX 1660 SUPER NB 6G V2-V tiene 1408 CUDA Cores, 6GB GDDR6, reloj base de 1530Mhz, boost de 1785Mhz, diseño de 2 ranuras, conector de alimentación de 8 pines, puertos DP+HDMI+DVI, y tecnologías como DirectX 12.1/4.5, Ansel y GPU Boost. Con un solo ventilador y tubería de calor, sus dimensiones son 222x126x42mm, pesa 0.71KG (N.W) e incluye garantía y manual.", "Computacion", "Placas de video",4);
-const PRODUCTO_4 = new Producto(4, "Procesador Intel Core i3 12100F (1700)", 220789, '../img/products/id-4/img-1.webp', "El procesador Intel Core i3 12100F (1700) ofrece un rendimiento superior para tareas de productividad y entretenimiento en tu computadora de escritorio. Con tecnología avanzada, asegura eficiencia en aplicaciones y transferencia de datos, potenciando tu experiencia informática.", "Computacion", "Procesadores", 6);
-const PRODUCTO_5 = new Producto(5, "Procesador Intel Core i5 11400 (1200)", 289000, '../img/products/id-5/img-1.webp', "El procesador Intel Core i5 11400 (1200) ofrece un rendimiento destacado para productividad y entretenimiento en tu PC. Con 6 núcleos y 12 hilos, alcanza una frecuencia turbo máxima de 4.40 GHz. Incluye 12 MB de caché inteligente y gráficos Intel® UHD 730. Es compatible con memoria DDR4-3200 y ofrece resolución 4K a 60Hz.", "Computacion", "Procesadores", 3);
-const PRODUCTO_6 = new Producto(6, "Procesador AMD Ryzen 3 4100", 151850, ['../img/products/id-6/img-1.webp', '../img/products/id-6/img-2.webp'], "El procesador AMD Ryzen 3 4100 ofrece un rendimiento potente sin GPU integrada. Con 4 núcleos y 8 hilos, alcanza frecuencias de reloj de 3.8 GHz a 4.0 GHz. Equipado con 4 MB de caché y compatible con memoria DDR4 hasta 128GB. Además, es desbloqueado para overclocking, viene con un air cooler y tiene un TDP de 65W.", "Computacion", "Procesadores", 4);
-const PRODUCTO_7 = new Producto(7, "Procesador Ryzen 5 5600g", 296760, ['../img/products/id-7/img-1.webp', '../img/products/id-7/img-2.webp'], "El AMD Ryzen 5 5600G, parte de la serie 5000, ofrece un rendimiento potente con 6 núcleos, 12 hilos y frecuencia de hasta 4.4 GHz. Su gráfica Radeon 7 Graphics brinda un rendimiento excepcional. Con características como caché L3 de 16MB, desbloqueo y tecnología DDR4, es ideal para diversas tareas. Compatible con chipsets 5xx y B450. SKU 413751.", "Computacion", "Procesadores", 2);

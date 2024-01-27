@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .carousel-products-container{
+        @apply w-[200%] lg:w-[100%] flex gap-2 lg:gap-4 justify-between px-4 absolute;
+    }
+
+    .carousel-product-item{
+        @apply w-2/3 lg:w-1/4 transition;
+    }
+
+    .carousel-product-card{
+        @apply bg-white flex w-full flex-col justify-between border border-gray-200 hover:shadow-xl transition rounded-md text-center px-4 pt-4 pb-6 h-full max-h-[460px];
+    }
+
+    .card-product-card-title{
+        @apply text-stone-500 text-sm md:text-lg pb-6 font-thin;
+    }
+
+    .carousel-product-card-inside{
+        @apply lg:flex lg:justify-center border-t border-stone-200 py-4 inline-block w-full space-x-1;
+    }
+
+    .card-product-img-container{
+        @apply w-full h-full max-w-[280px] max-h-[280px] relative;
+    }
+
+    .carousel-product-img{
+        @apply h-full w-full object-contain;
+    }
+
+    .carousel-product-text{
+        @apply flex flex-col gap-2 md:flex-row;
+    }
+
+    .carousel-product-old-price{
+        @apply text-stone-500 font-bold lg:text-base line-through;
+    }
+
+    .carousel-product-price{
+        @apply font-bold lg:text-base inline-block;
+    }
+
+    .carousel-product-off{
+        @apply bg-[#4d3efc] text-white transition-all p-1 rounded-md text-xs w-fit text-center mt-0.5;
+    }
+    .saved-price{
+        @apply hidden transition text-white text-xs absolute bottom-4 -left-4 bg-[#4d3efc] p-1;
+    }
+    .carousel-product-item:hover .saved-price{
+        @apply  block transition;
+    }
+
+
+}
