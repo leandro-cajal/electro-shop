@@ -6,7 +6,9 @@ const CAROUSEL_TOP_PRODUCTS_CONTAINER = document.querySelector("#carousel-top-pr
 // Función para cargar productos y inicializar la aplicación
 async function cargarProductos() {
     try {
-        const response = await fetch('../productos.json');
+        // const response = await fetch('../productos.json');
+        const response = await fetch('https://github.com/leandro-cajal/electro-shop');
+        
         if (!response.ok) {
             throw new Error(`Error al cargar el archivo JSON. Código de error: ${response.status}`);
         }
