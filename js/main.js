@@ -58,7 +58,7 @@ function createProductElement(id, imgSrc, title, discountPrice) {
     <a id="${id}" href="" class="h-full w-full block">
       <article class="carousel-product-card">
         <div class ="card-product-img-container">
-            <img class="carousel-product-img" src="https://leandro-cajal.github.io/electro-shop/${imgSrc}" alt="">
+            <img class="carousel-product-img" src="https://leandro-cajal.github.io/electro-shop${imgSrc}" alt="${title}">
             <div class="saved-price">
                 <span>AHORRÁS $ ${savePrice}</span>
             </div>
