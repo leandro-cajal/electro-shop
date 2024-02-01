@@ -132,7 +132,7 @@ function createProductElement(id, imgSrc, title, discountPrice) {
     <div id="${id}" href="" class="h-full w-full block">
       <article class="carousel-product-card">
         <div class ="card-product-img-container">
-            <img class="carousel-product-img" src="..${imgSrc}" alt="${title}">
+            <img class="carousel-product-img" src=".${imgSrc}" alt="${title}">
             <div class="saved-price">
                 <span>AHORRÁS $ ${savePrice}</span>
             </div>
