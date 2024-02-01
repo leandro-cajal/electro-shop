@@ -38,7 +38,6 @@
 <body class="w-full mx-auto font-sans relative">
   <!-- INICIO DE HEADER -->
   <!-- bg-white fixed bg-fixed w-full z-50 shadow-md lg:shadow-none -->
-  <!--  -->
   <header id="header-main" class="bg-white fixed bg-fixed w-full z-50 shadow-md lg:shadow-none">
     <div class="bg-slate-900 hidden py-2.5 text-white text-center lg:block">
       <div class="max-w-7xl mx-auto text-center">
@@ -53,9 +52,9 @@
             <img class="boton de aprterua del menu" src="./img/menu-icon.svg" alt="Boton para abrir el menu">
           </button>
           <!-- LOGO -->
-          <a class="mx-auto" href="#">
+          <div id="logo" class="mx-auto cursor-pointer">
             <img class="w-28 lg:w-40" src="./img/logo/logo-header.png" alt="Logo de la tienda">
-          </a>
+          </div>
         </div>
         <!-- LOGG IN Y CARRITO DE COMPRAS -->
         <div class="gap-5 flex justify-between items-center lg:order-3">
@@ -70,7 +69,7 @@
         </div>
         <!-- BUSCADOR -->
         <div class="w-full lg:order-2 lg:w-[40%]">
-          <form class="bg-gray-100 border border-slate-300 px-2 rounded-md" action="/shop" method="post">
+          <form class="bg-gray-100 border border-slate-300 px-2 rounded-md" method="post">
             <div class="flex justify-between items-center p-1">
               <input type="text"
                 class="input-text text-slate-500 bg-transparent focus:outline-none placeholder:font-extralight rounded-md px-2 w-[90%]"
@@ -93,18 +92,17 @@
             <span class="font-bold uppercase text-slate-800">Categorías</span>
           </button>
         </li>
-        <li><a class="text-base hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]"
-            href="">Computación</a></li>
-        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Periféricos PC</a>
+        <li><span class="text-base cursor-pointer hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc] computacion">Computación</span></li>
+        <li><span class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Periféricos PC</span>
         </li>
-        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Accesorios
-            Smart</a></li>
-        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]"
-            href="">Electrodomésticos</a></li>
-        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Smart Home</a>
+        <li><span class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Accesorios
+            Smart</span></li>
+        <li><span class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]"
+            href="">Electrodomésticos</span></li>
+        <li><span class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Smart Home</span>
         </li>
-        <li><a class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-red-600 text-red-600 me-6"
-            href="">Outlet</a></li>
+        <li><span class="hover:border-b-[4px] py-[11px] transition-all hover:border-b-red-600 text-red-600 me-6"
+            href="">Outlet</span></li>
       </ul>
 
       <!-- MENU HAMBURGUESA -->
@@ -200,7 +198,7 @@
     <!-- FIN DE NAV -->
   </header>
   <!-- FIN DE HEADER -->
-  <main class="bg-gray-100 relative">
+  <main id="main" class="bg-gray-100 relative">
     <div class="bg-white w-full py-[55px] lg:py-[90px]"></div>
 
     <section class="w-full mt-2">
@@ -563,13 +561,14 @@
       </div>
     </section>
     <!-- FIN DE SECCION DE NOVEDADES PARA PC -->
+    
     <!-- SECCION CARRUSEL PRODUCTOS DESTACADOS -->
     <section class="mx-auto max-w-7xl pb-10 relative">
-      <button id="carousel-btn-prev"
+      <button id="carousel-products-btn-prev"
         class="absolute transform hidden md:block -left-2 h-1/2 text-center top-1/2 -translate-y-1/2 z-40">
         <i
           class="bg-white rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
-      <button id="carousel-btn-next"
+      <button id="carousel-products-btn-next"
         class="absolute hidden md:block -right-3  h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i
           class="bg-white rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
       <section class="overflow-hidden relative text-left h-[600px]">
@@ -582,7 +581,32 @@
         <div class="max-w-7xl mx-auto overflow-hidden absolute h-full w-full">
 
 
-          <div id="carousel-top-prods" class="carousel-products-container ">
+          <div id="carousel-top-prods" class="carousel-products-container">
+          </div>
+
+        </div>
+
+      </section>
+    </section>
+    <section class="mx-auto max-w-7xl pb-10 relative">
+      <button id="carousel-pc-btn-prev"
+        class="absolute transform hidden md:block -left-2 h-1/2 text-center top-1/2 -translate-y-1/2 z-40">
+        <i
+          class="bg-white rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition bi bi-chevron-left border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+      <button id="carousel-pc-btn-next"
+        class="absolute hidden md:block -right-3  h-1/2 text-center top-1/2 transform -translate-y-1/2 z-40"><i
+          class="bg-white rounded-full px-4 py-3 shadow-lg hover:shadow-xl transition bi bi-chevron-right border border-gray-200 text-blue-600 text-xl font-bold"></i></button>
+      <section class="overflow-hidden relative text-left h-[600px]">
+        <div class="inline-block mb-8 ml-4">
+          <h3 class="font-bold text-center inline-block lg:text-2xl pb-5 rounded-sm lg:border-[#4d3efc]">
+            Computación</h3>
+          <div class="h-[6px] w-full bg-[#4d3efc] rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto overflow-hidden absolute h-full w-full">
+
+
+          <div id="carousel-pc-prods" class="carousel-products-container">
           </div>
 
         </div>

@@ -1,38 +1,114 @@
 let carrito = [];
 let PRODUCTOS = [];
-let PROBANDO = [];
+let ARRAY_PC_PRODS = [];  // Global array for "Computing" category products
 const CAROUSEL_TOP_PRODUCTS_CONTAINER = document.querySelector("#carousel-top-prods");
+const PC_CAT_BUTTONS = document.querySelectorAll(".computacion");
+const ORIGINAL_MAIN = document.querySelector("#main");
+const LOGO_ICON = document.querySelector("#logo");
+let ORIGINAL_CONTENT;
+let originalCarouselState = null;  // Save the original state of the carousel
+
+LOGO_ICON.addEventListener("click", () => {
+    if (originalCarouselState !== null) {
+        
+        CAROUSEL_TOP_PRODUCTS_CONTAINER.style.transform = originalCarouselState.transform;
+    }
+
+    cargarProductos();
+    ORIGINAL_MAIN.innerHTML = ORIGINAL_CONTENT;
+    console.log(ORIGINAL_MAIN);
+});
+
 
 // Función para cargar productos y inicializar la aplicación
 async function cargarProductos() {
     try {
         // const response = await fetch('../productos.json');
-        const response = await fetch('https://raw.githubusercontent.com/leandro-cajal/electro-shop/main/productos.json');
-        
+        const response = await fetch('./productos.json');
+
         if (!response.ok) {
             throw new Error(`Error al cargar el archivo JSON. Código de error: ${response.status}`);
         }
+        let datos = await response.json();
+        PRODUCTOS.push(...datos);
 
-        PRODUCTOS = await response.json();
-
-        // Ejemplo: Llamada a la función para mostrar productos en el carrusel
+        // función para mostrar productos en el carrusel
         mostrarProductosEnCarrusel();
+        ORIGINAL_CONTENT = ORIGINAL_MAIN.innerHTML;
+
+        PC_CAT_BUTTONS.forEach(button => {
+            button.addEventListener("click", () => {
+                if (originalCarouselState === null) {
+                    // Guardar el estado original del carrusel antes de cambiar a la categoría "Computacion"
+                    originalCarouselState = {
+                        transform: CAROUSEL_TOP_PRODUCTS_CONTAINER.style.transform
+                    };
+                }
+                let newArray = filterByCategory("computacion", PRODUCTOS);
+                let nuevoContenido = '';
+                newArray.forEach(producto => {
+                    console.log(producto);
+                    nuevoContenido += `<h2 class="py-10">${producto.nombre}</h2>
+                                      <p class="py-10">${producto.precio}</p>`;
+                });
+
+
+
+                // Reemplaza el contenido del elemento utilizando innerHTML
+                ORIGINAL_MAIN.innerHTML = nuevoContenido;
+            });
+        });
+
+
+        let searchedProducts;
+        document.addEventListener("keyup", e => {
+            if (e.target.matches("#search")) {
+                searchedProducts = PRODUCTOS.filter(producto =>
+                    producto.nombre.toLowerCase().includes(e.target.value.toLowerCase())
+                );
+                console.log(searchedProducts);
+
+                // Restaurar el estado original del carrusel antes de mostrar productos buscados
+                if (originalCarouselState !== null) {
+                    CAROUSEL_TOP_PRODUCTS_CONTAINER.style.transform = originalCarouselState.transform;
+                }
+            }
+        });
+
     } catch (error) {
         console.error('Error al iniciar la aplicación:', error);
     }
-    return PRODUCTOS
+
+}
+
+cargarProductos();
+
+
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function generateRandomNumbers(min, max, count) {
+    const numbers = [];
+    for (let i = min; i <= max; i++) {
+        numbers.push(i);
+    }
+    shuffleArray(numbers);
+    return numbers.slice(0, count);
 }
 
 
-cargarProductos();
 // Función para mostrar productos en el carrusel
 function mostrarProductosEnCarrusel() {
     // Puedes acceder a PRODUCTOS aquí y realizar cualquier operación necesaria
-
+    const RANDOM_NUMBERS = generateRandomNumbers(0, PRODUCTOS.length - 1, 12);
     // Ejemplo: Mostrar productos en el carrusel
-    for (let x = 1; x < 5; x++) {
-        const randomIndex = createRandomNumber(0, PRODUCTOS.length - 1);
-        const producto = PRODUCTOS[randomIndex];
+    for (let i = 1; i < 13; i++) {
+        let producto = PRODUCTOS[RANDOM_NUMBERS[i - 1]];
         let newProduct = createProductElement(producto.id, producto.imagenes[0], producto.nombre, producto.precio);
         const div = document.createElement('div');
         div.innerHTML = newProduct;
@@ -42,9 +118,7 @@ function mostrarProductosEnCarrusel() {
     }
 }
 
-function createRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
 
 function createProductElement(id, imgSrc, title, discountPrice) {
     let discount = 50;
@@ -55,10 +129,10 @@ function createProductElement(id, imgSrc, title, discountPrice) {
     discountPrice = discountPrice.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
     return `
-    <a id="${id}" href="" class="h-full w-full block">
+    <div id="${id}" href="" class="h-full w-full block">
       <article class="carousel-product-card">
         <div class ="card-product-img-container">
-            <img class="carousel-product-img" src="https://leandro-cajal.github.io/electro-shop${imgSrc}" alt="${title}">
+            <img class="carousel-product-img" src="..${imgSrc}" alt="${title}">
             <div class="saved-price">
                 <span>AHORRÁS $ ${savePrice}</span>
             </div>
@@ -74,20 +148,38 @@ function createProductElement(id, imgSrc, title, discountPrice) {
           </div>
         </div>
       </article>
-    </a>
+    </div>
   `;
 }
 
+const CAROUSEL_TOP_PRODS_PREV = document.querySelector("#carousel-products-btn-prev");
+const CAROUSEL_TOP_PRODS_NEXT = document.querySelector("#carousel-products-btn-next");
 
+let carouselPosition = -33.3;
 
-
-
-
-
+CAROUSEL_TOP_PRODS_NEXT.addEventListener("click", () => {
+    carouselPosition -= 33.3;
+    if (carouselPosition < -99) {
+        carouselPosition = 0;
+    }
+    CAROUSEL_TOP_PRODUCTS_CONTAINER.style.transform = `translateX(${carouselPosition}%)`;
+});
+CAROUSEL_TOP_PRODS_PREV.addEventListener("click", () => {
+    carouselPosition += 33.3;
+    if (carouselPosition > 0) {
+        carouselPosition = -66.6;
+    }
+    CAROUSEL_TOP_PRODUCTS_CONTAINER.style.transform = `translateX(${carouselPosition}%)`;
+});
 
 // Obtener el contenedor del carrusel
 const carouselContainer = document.getElementById('carousel-container');
 
+function filterByCategory(category, PRODUCTOS) {
+    let newArrayByCategory = PRODUCTOS.filter(producto => producto.categoria.toLowerCase() === category);
+    console.log(newArrayByCategory);
+    return newArrayByCategory;
+}
 
 function setupCarousel(carouselSelector, indicatorSelector) {
     const CAROUSEL = document.querySelector(carouselSelector);
@@ -286,42 +378,30 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // CARRUSEL DE CATEGORIAS HOME
-
 const CAROUSEL_CONTAINER = document.querySelector("#carousel-cat-container");
 const CAROUSEL_LIST = document.querySelector("#carousel-categories");
 const PREV_BTN = document.querySelector("#carousel-btn-prev");
 const NEXT_BTN = document.querySelector("#carousel-btn-next");
 
 let currentIndexCustom = 0;
-let startXCustom = 0;
-let draggingCustom = false;
 let lastTranslateX = 0;
+
 function handleTouchStart(event) {
-    draggingCustom = true;
     startXCustom = event.touches[0].clientX - lastTranslateX;
 }
 
 function handleTouchMove(event) {
-    if (!draggingCustom) return;
-
     const deltaX = event.touches[0].clientX - startXCustom;
-    lastTranslateX = -currentIndexCustom * 200 + deltaX;
+    lastTranslateX = -currentIndexCustom * 8.333333 + deltaX;
 
-    if (window.innerWidth > 1023) {
-        lastTranslateX = Math.max(-3400, Math.min(0, lastTranslateX));
-    } else if (window.innerWidth > 768) {
-        lastTranslateX = Math.max(-5000, Math.min(0, lastTranslateX));
-    } else {
-        lastTranslateX = Math.max(-6200, Math.min(0, lastTranslateX));
-    }
+    const minTranslateX = window.innerWidth > 1023 ? -33.333332 : -41.666666;
+    lastTranslateX = Math.max(minTranslateX, Math.min(0, lastTranslateX));
 
     CAROUSEL_LIST.style.transition = "none";
-    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
+    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}%)`;
 }
 
 function handleTouchEnd(event) {
-    if (!draggingCustom) return;
-
     draggingCustom = false;
     CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
 
@@ -331,16 +411,12 @@ function handleTouchEnd(event) {
         handleSlideChange(deltaX > 0 ? -1 : 1);
     }
 
-    let startXCustom = 0;
-    lastTranslateX = -currentIndexCustom * 200 + (startXCustom - startX);
+    lastTranslateX = -currentIndexCustom * 8.333333;
 
-    if (window.innerWidth > 1023) {
-        lastTranslateX = Math.max(-3800, Math.min(0, lastTranslateX));
-    } else {
-        lastTranslateX = Math.max(-3800, Math.min(0, lastTranslateX));
-    }
+    const minTranslateX = window.innerWidth > 1023 ? -33.333332 : -41.666666;
+    lastTranslateX = Math.max(minTranslateX, Math.min(0, lastTranslateX));
 
-    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
+    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}%)`;
 }
 
 window.addEventListener("resize", function () {
@@ -354,49 +430,46 @@ CAROUSEL_LIST.addEventListener("touchmove", handleTouchMove);
 CAROUSEL_LIST.addEventListener("touchend", handleTouchEnd);
 
 NEXT_BTN.addEventListener("click", function () {
-    const carouselItems = CAROUSEL_LIST.querySelectorAll(".carousel-cat-item");
-
-    if (currentIndexCustom < carouselItems.length - 1) {
-        lastTranslateXBeforeChange = lastTranslateX;
+    if (currentIndexCustom < 9) {
         currentIndexCustom++;
-        lastTranslateX = -currentIndexCustom * 418;
-
-        if (window.innerWidth > 1023) {
-            lastTranslateX = Math.max(-3600, lastTranslateX);
-        } else {
-            lastTranslateX = Math.max(-3800, lastTranslateX);
-        }
-
-        CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
-        CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
     } else {
-        restoreToBeginning();
+        currentIndexCustom = 0;
     }
+    updateCarousel();
 });
 
 PREV_BTN.addEventListener("click", function () {
     if (currentIndexCustom > 0) {
-        lastTranslateXBeforeChange = lastTranslateX;
         currentIndexCustom--;
-        lastTranslateX = -currentIndexCustom * 418;
-
-        if (window.innerWidth > 1023) {
-            lastTranslateX = Math.max(-3800, lastTranslateX);
-        } else {
-            lastTranslateX = Math.max(-3800, lastTranslateX);
-        }
-
-        CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
-        CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
+    } else {
+        currentIndexCustom = 9;
     }
+    updateCarousel();
 });
 
-//función para restaurar la posición 
+function handleSlideChange(direction) {
+    if (direction === 1 && currentIndexCustom < 9) {
+        currentIndexCustom++;
+    } else if (direction === -1 && currentIndexCustom > 0) {
+        currentIndexCustom--;
+    }
+    updateCarousel();
+}
+
+function updateCarousel() {
+    lastTranslateX = -currentIndexCustom * 8.333333;
+
+    const minTranslateX = window.innerWidth > 1023 ? -100 : -100;
+    lastTranslateX = Math.max(minTranslateX, Math.min(0, lastTranslateX));
+
+    CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
+    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}%)`;
+}
+
+// Función para restaurar la posición
 function restoreToBeginning() {
     currentIndexCustom = 0;
-    lastTranslateX = 0;
-    CAROUSEL_LIST.style.transition = "transform 0.3s ease-in-out";
-    CAROUSEL_LIST.style.transform = `translateX(${lastTranslateX}px)`;
+    updateCarousel();
 }
 
 const TOP_PRODUCTS_CONTAINER = document.querySelector("#carrusel-top-prods");
@@ -442,7 +515,7 @@ PAYMENT_METHODS_BUTTON.addEventListener('click', function () {
             HEADER_MAIN.style.marginLeft = '-8px';
         },
         willClose: () => {
-            const HEADER_MAIN = document.querySelector("#header-main");          
+            const HEADER_MAIN = document.querySelector("#header-main");
             HEADER_MAIN.style.marginLeft = '0';
         }
     });
