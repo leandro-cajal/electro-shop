@@ -535,13 +535,13 @@ PAYMENT_METHODS_BUTTON.addEventListener('click', function () {
           <p class="text-sm pb-6 pt-4 text-stone-700 text-left border-t">Podés pagar en efectivo, débito y crédito.</p>
           <p class="text-sm pb-6 text-stone-700 text-left">Tenés 3, 6, 12 y 18 cuotas con todas las tarjetas de crédito bancarias Visa y Mastercard.</p>
           <div class="flex gap-5 justify-center mt-2 flex-wrap">
-            <img  src="../img/payment-methods/visa.svg" class="h-6 object-cover" alt="Imagen 1">
-            <img src="../img/payment-methods/mastercard.svg" class="h-6 object-cover" alt="Imagen 2">
-            <img src="../img/payment-methods/american-express.svg" class="h-6 object-cover" alt="Imagen 3">
-            <img src="../img/payment-methods/tarjeta-naranja.webp" class="h-6 object-cover" alt="Imagen 4">
-            <img src="../img/payment-methods/mercado-pago.webp" class="h-6 object-cover" alt="Imagen 5">
-            <img src="../img/payment-methods/pago-facil.svg" class="h-6 object-cover" alt="Imagen 6">
-            <img src="../img/payment-methods/rapipago.svg" class="h-6 object-cover" alt="Imagen 7">
+            <img  src="./img/payment-methods/visa.svg" class="h-6 object-cover" alt="Imagen 1">
+            <img src="./img/payment-methods/mastercard.svg" class="h-6 object-cover" alt="Imagen 2">
+            <img src="./img/payment-methods/american-express.svg" class="h-6 object-cover" alt="Imagen 3">
+            <img src="./img/payment-methods/tarjeta-naranja.webp" class="h-6 object-cover" alt="Imagen 4">
+            <img src="./img/payment-methods/mercado-pago.webp" class="h-6 object-cover" alt="Imagen 5">
+            <img src="./img/payment-methods/pago-facil.svg" class="h-6 object-cover" alt="Imagen 6">
+            <img src="./img/payment-methods/rapipago.svg" class="h-6 object-cover" alt="Imagen 7">
           </div>
         `,
         showConfirmButton: true,
