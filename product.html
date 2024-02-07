@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electro | Venta de productos tecnologicos</title>
+  <!-- META TAGS -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description"
+    content="¡Compra toda la tecnología con un solo click desde cualquier parte del pais! TV | Notebooks | Gaming | Impresion | Consolas">
+  <meta name="robots" content="all">
+  <meta name="google-site-verification" content>
+  <!-- COLOCAR URL DE SITIO WEB ABAJO -->
+  <link rel="canonical" href="">
+  <meta property="og:site-name" content="Electro | Venta de productos tecnologicos">
+  <meta property="og:title" content="Electro | Venta de productos tecnologicos">
+  <meta property="og:description"
+    content="¡Compra toda la tecnología con un solo click desde cualquier parte del pais! TV | Notebooks | Gaming | Impresion | Consolas">
+  <!-- AGREGAR ABAJO LA EL LOGO DE LA TIENDA -->
+  <meta property="og:image" itemprop="image" content="./img/logo/logo-favicon.svg">
+  <meta property="og:type" content="website">
+  <link rel="shortcut icon" href="./img/logo/logo-favicon.svg" type="image/x-icon">
+  <link rel="icon" type="image/x-icon" href="./img/logo/logo-favicon.svg">
+  <!-- ANIMATE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- SWEET ALERT -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- BOOTSTRAP ICONS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <!-- CSS STYLE -->
+  <link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+<body class="w-full mx-auto font-sans relative min-h-screen">
+    <!-- INICIO DE HEADER -->
+    <!-- bg-white fixed bg-fixed w-full z-50 shadow-md lg:shadow-none -->
+    <header id="header-main" class="bg-white fixed bg-fixed w-full z-50 shadow-md lg:shadow-none">
+      <div class="bg-slate-900 hidden py-2.5 text-white text-center lg:block">
+        <div class="max-w-7xl mx-auto text-center">
+          <span class="font-semibold">Envios a todo el país</span>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between my-2 px-4 space-y-2">
+          <div class="flex justify-center gap-4 items-center">
+            <!-- MENU HAMBURGUESA -->
+            <button id="open-menu" class="lg:hidden">
+              <img class="boton de aprterua del menu" src="./img/menu-icon.svg" alt="Boton para abrir el menu">
+            </button>
+            <!-- LOGO -->
+            <a href="./index.html" id="logo" class="mx-auto cursor-pointer">
+              <img class="w-28 lg:w-40" src="./img/logo/logo-header.png" alt="Logo de la tienda">
+            </a>
+          </div>
+          <!-- LOGG IN Y CARRITO DE COMPRAS -->
+          <div class="gap-5 flex justify-between items-center lg:order-3">
+            <a href="">
+              <i
+                class="text-[#4d3efc] bi bi-person-circle text-2xl bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>
+            </a>
+            <a class="lg:border-l lg:border-slate-300 lg:px-4 " href="">
+              <i
+                class="text-red-600 bi bi-cart text-2xl bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>
+            </a>
+          </div>
+          <!-- BUSCADOR -->
+          <div class="w-full lg:order-2 lg:w-[40%]">
+            <form class="bg-gray-100 border border-slate-300 px-2 rounded-md" method="post">
+              <div class="flex justify-between items-center p-1">
+                <input type="text"
+                  class="input-text text-slate-500 bg-transparent focus:outline-none placeholder:font-extralight rounded-md px-2 w-[90%]"
+                  name="search" id="search" placeholder="Buscar productos">
+                <button class="pl-2 py-1 border-l border-slate-300 w-[10%]" type="submit">
+                  <i class=" text-base font-bold bi bi-search mx-auto text-[#4d3efc]"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- NAV -->
+      <nav class="w-full bg-white mx-auto mt-4 lg:border ">
+        <ul class=" max-w-7xl mx-auto gap-3 justify-between items-center text-stone-700 hidden lg:flex">
+          <li class="flex border-x px-8 justify-between">
+            <button id="open-menu-full"
+              class=" text-slate-600 hidden lg:justify-between lg:flex items-center gap-5 p-3"><img class="fill-stone-800"
+                src="./img/menu-icon.svg" alt="">
+              <span class="font-bold uppercase text-slate-800">Categorías</span>
+            </button>
+          </li>
+          <li><span class="text-base cursor-pointer hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc] computacion">Computación</span></li>
+          <li><span class="text-base cursor-pointer hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Periféricos PC</span>
+          </li>
+          <li><span class="text-base cursor-pointer hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Accesorios
+              Smart</span></li>
+          <li><span class="text-base cursor-pointer hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]"
+              href="">Electrodomésticos</span></li>
+          <li><span class="text-base cursor-pointer hover:border-b-[4px] py-[11px] transition-all hover:border-b-[#4d3efc]" href="">Smart Home</span>
+          </li>
+          <li><span class="text-base cursor-pointer hover:border-b-[4px] py-[11px] transition-all hover:border-b-red-600 text-red-600 me-6"
+              href="">Outlet</span></li>
+        </ul>
+  
+        <!-- MENU HAMBURGUESA -->
+        <div id="nav"
+          class=" transition-all duration-500 fixed w-full bg-black top-0 bg-opacity-50 min-h-screen hidden lg:h-96 lg:top-[187px]">
+          <div id="menu-container"
+            class="relative bg-white lg:h-full lg:max-h-[386px] lg:w-full lg:max-w-7xl lg:mx-auto z-50">
+            <ul id="menu"
+              class="bg-white left-0 pt-4  flex flex-col w-full max-w-md absolute transition-all duration-500 -translate-x-full top-0 min-h-screen lg:translate-x-0 lg:min-h-fit  lg:pt-0 lg:max-h-[400px] lg:max-w-[221px] lg:border-r">
+              <li class="flex justify-between items-center border-b px-6 pb-3 w-full lg:hidden">
+                <img class="w-28" src="./img/logo/logo-header.png" alt="">
+                <button id="close-menu"><i class="text-2xl bi bi-x-lg"></i></button>
+              </li>
+              <li class=" border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+                <a class="flex items-center justify-between" href="">
+                  <p class="flex gap-3 items-center"><img class="w-6 lg:hidden"
+                      src="./img/category-icons/computacion-icono.svg" alt="">Computación</p><i
+                    class="bi bi-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li class="border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+                <a class="flex items-center justify-between" href="">
+                  <p class="flex gap-3 items-center">
+                    <img class="w-6 lg:hidden" src="./img/category-icons/perifericos-icono.svg" alt="">Periféricos PC
+                  </p>
+                  <i class="bi bi-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li class=" border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+                <a class="flex items-center justify-between" href="">
+                  <p class="flex gap-3 items-center">
+                    <img class="w-6 lg:hidden" src="https://mundofixar.vtexassets.com/arquivos/accesorios-smart-icono.svg"
+                      alt="">Accesorios Smart
+                  </p>
+                  <i class="bi bi-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li class="border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+                <a class="flex items-center justify-between" href="">
+                  <p class="flex gap-3 items-center">
+                    <img class="w-6 lg:hidden" src="./img/category-icons/electrodomesticos-icono.svg"
+                      alt="">Electrodomésticos
+                  </p>
+                  <i class="bi bi-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li class=" border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+                <a class="flex items-center justify-between" href="">
+                  <p class="flex gap-3 items-center">
+                    <img class="w-6 lg:hidden" src="./img/category-icons/otras-categorias-icono.svg" alt="">Otras
+                    Categorias
+                  </p>
+                  <i class="bi bi-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li class=" border-b w-full h-11 px-5 lg:px-6 lg:py-3 hover:bg-[#4d3efc] hover:text-white transition-all">
+                <a class="my-auto flex gap-3 items-center" href="">
+                  <p class="flex items-center">
+                    <img class="w-10 lg:hidden" src="./img/category-icons/outlet-icono.svg" alt="">Outlet
+                  </p>
+                </a>
+              </li>
+              <li class="border-b w-full py-3 px-6 hover:bg-[#4d3efc] hover:text-white transition-all lg:py-2">
+                <a class="flex items-center justify-between " href="">
+                  <p class="flex gap-3 items-center">
+                    <img class="w-6 lg:hidden" src="./img/category-icons/marcas-icono.svg" alt="">Marcas
+                  </p>
+                  <i class="bi bi-chevron-right text-xs"></i>
+                </a>
+              </li>
+              <li class="border-b w-full py-3 px-6 bg-gradient-to-r from-black to-blue-900 lg:py-2">
+                <a href="" class="flex gap-3 justify-start items-center text-white w-full">
+                  <img class="w-6 brightness-200" src="./img/logo/logo-fav.png" alt="">
+                  Nosotros
+                </a>
+              </li>
+              <li class="flex items-center justify-between border-b w-full py-3 px-6 lg:hidden">
+                <a class="flex gap-3 items-center">
+                  <i
+                    class="text-[#4d3efc] bi bi-person-circle text-lg bg-clip-text text-transparent bg-gradient-to-t from-[#4d3efc] to-red-500"></i>
+                  Login
+                </a>
+                <i class="bi bi-chevron-right text-xs"></i>
+              </li>
+            </ul>
+            <div class="w-[55%] h-full absolute lg:left-[220px] z-[100] "></div>
+            <div class="w-1/3  z-[100] absolute right-0 h-full"></div>
+          </div>
+        </div>
+  
+  
+      </nav>
+      <!-- FIN DE NAV -->
+    </header>
+    <!-- FIN DE HEADER -->
+    <main id="main-computacion">
+
+    </main>
+
+    <footer class="text-gray-600 body-font w-full border-y border-stone-00">
+        <div class="max-w-7xl mx-auto px-5 py-12 flex lg:items-center lg:flex-row lg:flex-nowrap flex-wrap flex-col">
+          <div class="w-64 flex-shrink-0 mx-auto text-center lg:w-[20%] md:mt-0 mt-10">
+            <div class="mx-auto">
+              <img class="w-28 lg:w-40 mx-auto" src="./img/logo/logo-header.png" alt="Logo de la tienda">
+            </div>
+          </div>
+          <div class="flex-grow flex flex-wrap md:pr-20 -mb-10  lg:justify-between lg:pr-0 text-left order-first">
+            <div class="lg:w-[30%] md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-[#4d3efc] tracking-widest text-base mb-6">Contacto</h2>
+              <nav class="list-none mb-10 space-y-2">
+                <li>
+                  <a class="text-gray-600 hover:text-[#4d3efc] transition-all" href="tel: 08107777123"><i
+                      class="text-sm bi bi-phone me-2 "></i> 0810 7777 123</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-[#4d3efc] transition-all"
+                    href="https://api.whatsapp.com/send?phone=543517771234"><i class="text-sm bi bi-whatsapp me-2 "></i> 351
+                    777-1234</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-[#4d3efc] transition-all" href="mailto:info@tecno.ar"><i
+                      class="text-sm bi bi-envelope me-2 "></i> info@tecno.ar</a>
+                </li>
+                <li class="mt-4">
+                  <div class="pt-4">
+                    <span class="inline-flex space-x-3 sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                      <a class="text-gray-500 hover:text-[#4d3efc] transition-colors text-lg" href="#">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          class="w-6 h-6" viewBox="0 0 24 24">
+                          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                      </a>
+                      <a class=" text-gray-500 hover:text-[#4d3efc] transition-colors text-lg" href="#">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"></h2>
+              <nav class="list-none mb-10 space-y-2">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Cambios y devoluciones</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Envíos y entregas</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Políticas de garantías</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Términos y condiciones</a>
+                </li>
+                <li>
+                  <a class=" text-gray-800 underline decoration-1" href="#">Botón de arrepentimiento</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/3 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"></h2>
+              <nav class="list-none mb-10 space-y-2">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Nosotros</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Políticas de privacidad</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Preguntas frecuentes</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Cómo comprar</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800 hover:underline hover:decoration-1 transition-all"
+                    href="#">Contacto</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="bg-white w-full">
+        <div class="max-w-7xl mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Electro —
+            <a href="https://github.com/leandro-cajal/electro-store" rel="noopener noreferrer" class="text-[#4d3efc] ml-1"
+              target="_blank">Leo</a>
+          </p>
+        </div>
+      </div>
+      <!-- SWEET ALERT -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- JS -->
+      <script defer src="./js/main.js"></script>
+    </body>
+    
+    </html>

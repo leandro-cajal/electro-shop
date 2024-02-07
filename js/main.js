@@ -1,41 +1,24 @@
 let carrito = [];
-let PRODUCTOS = [];
-let ARRAY_PC_PRODS = [];  // Global array for "Computing" category products
+const PRODUCTOS = [];
 const CAROUSEL_TOP_PRODUCTS_CONTAINER = document.querySelector("#carousel-top-prods");
 const PC_CAT_BUTTONS = document.querySelectorAll(".computacion");
 const ORIGINAL_MAIN = document.querySelector("#main");
 const LOGO_ICON = document.querySelector("#logo");
-let ORIGINAL_CONTENT;
-let originalCarouselState = null;  // Save the original state of the carousel
-
-LOGO_ICON.addEventListener("click", () => {
-    if (originalCarouselState !== null) {
-        
-        CAROUSEL_TOP_PRODUCTS_CONTAINER.style.transform = originalCarouselState.transform;
-    }
-
-    cargarProductos();
-    ORIGINAL_MAIN.innerHTML = ORIGINAL_CONTENT;
-    console.log(ORIGINAL_MAIN);
-});
-
+const SUGGESTED_PRODUCTS_CONTAINER = document.querySelector("#suggested-products");
 
 // Función para cargar productos y inicializar la aplicación
 async function cargarProductos() {
     try {
-        // const response = await fetch('../productos.json');
         const response = await fetch('./productos.json');
-
         if (!response.ok) {
             throw new Error(`Error al cargar el archivo JSON. Código de error: ${response.status}`);
         }
-        let datos = await response.json();
-        PRODUCTOS.push(...datos);
-
+        const DATOS = await response.json();
+        PRODUCTOS.length = 0;
+        PRODUCTOS.push(...DATOS);
+        console.log(DATOS);
         // función para mostrar productos en el carrusel
         mostrarProductosEnCarrusel();
-        ORIGINAL_CONTENT = ORIGINAL_MAIN.innerHTML;
-
         PC_CAT_BUTTONS.forEach(button => {
             button.addEventListener("click", () => {
                 if (originalCarouselState === null) {
@@ -51,38 +34,96 @@ async function cargarProductos() {
                     nuevoContenido += `<h2 class="py-10">${producto.nombre}</h2>
                                       <p class="py-10">${producto.precio}</p>`;
                 });
-
-
-
                 // Reemplaza el contenido del elemento utilizando innerHTML
-                ORIGINAL_MAIN.innerHTML = nuevoContenido;
             });
         });
-
-
-        let searchedProducts;
         document.addEventListener("keyup", e => {
+            let searchedProducts;
+            let searchTerm = e.target.value.trim().toLowerCase();
+            // Verificar si el evento keyup se originó en el campo de búsqueda
             if (e.target.matches("#search")) {
-                searchedProducts = PRODUCTOS.filter(producto =>
-                    producto.nombre.toLowerCase().includes(e.target.value.toLowerCase())
-                );
-                console.log(searchedProducts);
-
-                // Restaurar el estado original del carrusel antes de mostrar productos buscados
-                if (originalCarouselState !== null) {
-                    CAROUSEL_TOP_PRODUCTS_CONTAINER.style.transform = originalCarouselState.transform;
+                // Verificar si la cadena de búsqueda no está vacía
+                if (searchTerm !== "") {
+                    // Filtrar los productos según la entrada de búsqueda
+                    searchedProducts = PRODUCTOS.filter(producto =>
+                        producto.nombre.toLowerCase().includes(searchTerm)
+                    );
+                    // Mostrar los productos sugeridos en la página
+                    showSuggestedProducts(searchedProducts, searchTerm);
+                } else {
+                    // Ocultar el contenedor de productos sugeridos y limpiar el array
+                    hideSuggestedProducts(searchedProducts);
                 }
             }
         });
-
     } catch (error) {
         console.error('Error al iniciar la aplicación:', error);
     }
+}
+document.addEventListener('DOMContentLoaded', function(){
+    cargarProductos();
+})
 
+console.log(PRODUCTOS[0]);
+
+function hideSuggestedProducts(suggestedProducts) {
+    // Ocultar el contenedor de productos sugeridos
+    SUGGESTED_PRODUCTS_CONTAINER.style.display = "none";
+
+    // Limpiar el array de productos sugeridos
+    suggestedProducts = [];
+    return suggestedProducts;
 }
 
-cargarProductos();
+function showSuggestedProducts(array, textEntry) {
+    // Limpiar el contenedor de productos sugeridos antes de agregar la nueva lista
 
+    SUGGESTED_PRODUCTS_CONTAINER.innerHTML = '';
+    let listaDeProductos = document.createElement("ul");
+    let item;
+    // Mostrar un mensaje en caso de no encontrar un producto
+    if (array.length === 0) {
+        item = document.createElement("li");
+        item.classList = "flex w-full border-b cursor-pointer hover:bg-gray-100";
+        item.innerHTML = `
+            <p class ="p-4 text-center">Lo siento no hay productos para: "${textEntry}" 
+            </p>
+        `;
+        console.log(item.innerHTML);    
+        listaDeProductos.appendChild(item);
+    } else {
+        // Recorrer el array de productos y crear un elemento li por cada producto
+        array.forEach(function (producto) {
+            // Crear un elemento li para cada producto
+            item = document.createElement("li");
+            item.classList = "flex w-full border-b cursor-pointer hover:bg-gray-100";
+
+            // Asignar el contenido HTML al elemento li
+            item.innerHTML = `
+            <a id="${producto.id}" class="p-3 flex items-center suggested-product-item" href="./product.html?id=${producto.id}">
+                <div class="w-20 h-20 p-2">
+                    <img class="h-full w-full object-contain" src=".${producto.imagenes[0]}" alt ="${producto.nombre}">
+                </div>
+                <p>${producto.nombre}</p>
+            </a>
+        `;
+
+            // Agregar un evento de clic al elemento de producto sugerido para redirigir a la página individual del producto
+            item.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+                window.location.href = `./pages/product.html?id=${producto.id}`; // Redirigir a la página individual del producto
+            });
+            console.log(item);
+            // Agregar el elemento li a la lista desordenada
+            listaDeProductos.appendChild(item);
+        });
+
+        // Agregar la lista de productos al contenedor en el HTML
+        
+    }
+    SUGGESTED_PRODUCTS_CONTAINER.appendChild(listaDeProductos);
+    SUGGESTED_PRODUCTS_CONTAINER.style.display = "block";
+}
 
 
 function shuffleArray(array) {
@@ -132,7 +173,9 @@ function createProductElement(id, imgSrc, title, discountPrice) {
     <div id="${id}" href="" class="h-full w-full block">
       <article class="carousel-product-card">
         <div class ="card-product-img-container">
-            <img class="carousel-product-img" src=".${imgSrc}" alt="${title}">
+            <div class ="container-img-product">
+                <img class="carousel-product-img " src=".${imgSrc}" alt="${title}">
+            </div>
             <div class="saved-price">
                 <span>AHORRÁS $ ${savePrice}</span>
             </div>
@@ -150,6 +193,13 @@ function createProductElement(id, imgSrc, title, discountPrice) {
       </article>
     </div>
   `;
+}
+
+function cargarProductosComputacion(PRODUCTOS) {
+    PRODUCTOS.forEach((producto) => ({
+
+    }))
+
 }
 
 const CAROUSEL_TOP_PRODS_PREV = document.querySelector("#carousel-products-btn-prev");
@@ -506,9 +556,6 @@ PAYMENT_METHODS_BUTTON.addEventListener('click', function () {
             popup: `
               
             `
-        },
-        customClass: {
-            popup: 'fixed-modal-class' // Agrega tu clase personalizada aquí
         },
         didOpen: () => {
             const HEADER_MAIN = document.querySelector("#header-main");

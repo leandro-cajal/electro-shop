@@ -24,11 +24,14 @@
     }
 
     .card-product-img-container {
-        @apply w-full h-full max-w-[280px] max-h-[280px] relative;
+        @apply w-full h-full max-w-[280px] max-h-[280px] z-40 relative;
     }
 
     .carousel-product-img {
-        @apply h-full w-full object-contain;
+        @apply h-full w-full object-contain overflow-hidden hover:scale-125 transition duration-500;
+    }
+    .container-img-product{
+        @apply overflow-hidden h-full w-full 
     }
 
     .carousel-product-text {
@@ -48,7 +51,7 @@
     }
 
     .saved-price {
-        @apply hidden transition text-white text-xs absolute bottom-4 -left-4 bg-[#4d3efc] p-1;
+        @apply lg:hidden transition text-white text-xs absolute bottom-4 -left-4 bg-[#4d3efc] p-1 z-50;
     }
 
     .carousel-product-item:hover .saved-price {
@@ -59,7 +62,6 @@
         width: 100% !important;
         height: 100% !important;
     }
-    
     
     /* Estilo para el fondo gris que ocupa todo el fondo */
     .swal2-container::before {
